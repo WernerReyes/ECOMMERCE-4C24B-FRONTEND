@@ -9,7 +9,7 @@ function Navbar() {
       arial-label="Furni navigation bar"
     >
       <div class="container">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="">
           Furni<span>.</span>
         </a>
 
@@ -28,7 +28,7 @@ function Navbar() {
         <div class="collapse navbar-collapse" id="navbarsFurni">
           <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
             <li class="nav-item ">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="HomePage.jsx">
                 Home
               </a>
             </li>
