@@ -1,17 +1,13 @@
-import CartPage from "./cart/pages/CartPage"
-//import ShopPage from "./shop/pages/ShopPage"
+import ShopPage from "./shop/pages/shopPage"
+
 
 
 function App() {
-
   return (
     < >
-     {/* <ShopPage /> */}
+     <ShopPage /> 
      {/* <CartPage /> */}
-     <switch>
-        <Route path="/cart" component={CartPage} />
-        <Route path="/shop" component={ShopPage} />
-     </switch>
+    
     </>
   )
 }
