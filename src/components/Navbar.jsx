@@ -29,22 +29,22 @@ function Navbar() {
           <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
             <li class="nav-item ">
               <a class="nav-link" href="HomePage.jsx">
-                Home
+                Inicio
               </a>
             </li>
             <li class="active">
               <a class="nav-link" href="shop.html">
-                Shop
+                Tienda
               </a>
             </li>
             <li>
               <a class="nav-link" href="about.html">
-                About us
+                Sobre nosotros
               </a>
             </li>
             <li>
               <a class="nav-link" href="services.html">
-                Services
+                Servicios
               </a>
             </li>
             <li>
@@ -54,7 +54,7 @@ function Navbar() {
             </li>
             <li>
               <a class="nav-link" href="contact.html">
-                Contact us
+                Contactanos
               </a>
             </li>
           </ul>
