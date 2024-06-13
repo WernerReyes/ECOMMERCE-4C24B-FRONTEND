@@ -1,14 +1,21 @@
-import { useState } from 'react'
-import './App.css'
+import { Suspense } from "react";
+import "./App.css";
+import { AppRouter } from "./router/AppRouter";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-     
+      <Suspense
+        fallback={
+          <div className="flex items-center justify-center h-screen">
+            <p className="text-4xl">Loading app...</p>
+          </div>
+        }
+      >
+        <AppRouter />
+      </Suspense>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
