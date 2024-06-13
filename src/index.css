@@ -1,4 +1,4 @@
-/* :root {
+/*:root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -9,17 +9,17 @@
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+  --primary: #3b5d50;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #3b5d50;
 }
 
 body {
@@ -30,10 +30,7 @@ body {
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+
 
 button {
   border-radius: 8px;
@@ -68,16 +65,22 @@ button:focus-visible {
 } */
 
 /*
-* Template Name: UntreeStore
-* Template Author: Untree.co
-* Author URI: https://untree.co/
-* License: https://creativecommons.org/licenses/by/3.0/
+Index
+
 */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 
 body {
   overflow-x: hidden;
   position: relative;
+}
+
+.ss {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
 }
 
 body {
@@ -526,9 +529,9 @@ a.more {
 .we-help-section .imgs-grid {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[27];
+  /* -ms-grid-columns: (1fr)[27];
   grid-template-columns: repeat(27, 1fr);
-  position: relative;
+  position: relative; */
 }
 
 .we-help-section .imgs-grid:before {
