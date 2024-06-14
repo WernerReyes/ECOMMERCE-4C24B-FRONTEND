@@ -1,34 +1,72 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Controller, useForm } from "react-hook-form";
 import { InputText } from "../../components";
 import { AuthLayout } from "../layout/AuthLayout";
-import { Link } from "react-router-dom";
 import { publicRoutes } from "../../routes";
+import { loginValidation } from "../validations";
+import { useAuthStore } from "../../hooks";
 
 const { REGISTER } = publicRoutes;
 
 const LoginPage = () => {
+  const { startLogin } = useAuthStore();
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(loginValidation),
+  });
+
+  const handleLogin = async (data) => startLogin(data);
+
   return (
-    <AuthLayout >
-      <form className="w-100" style={{ maxWidth: "320px" }}>
-        <InputText
-          className="form-control mb-3"
-          type="email"
-          placeholder="Email"
-          name={"email"}
-          label={"Email"}
+    <AuthLayout>
+      <form
+        className="w-100"
+        style={{ maxWidth: "320px" }}
+        onSubmit={handleSubmit(handleLogin)}
+      >
+        <Controller
+          name="email"
+          control={control}
+          defaultValue=""
+          render={({ field }) => (
+            <InputText
+              {...field}
+              className="form-control"
+              type="email"
+              placeholder="Enter your email"
+              label="Email"
+              error={errors.email?.message}
+            />
+          )}
         />
-        <InputText
-          className="form-control mb-3"
-          type="password"
-          placeholder="Password"
-          name={"password"}
-          label={"Password"}
+
+        <Controller
+          name="password"
+          control={control}
+          defaultValue=""
+          render={({ field }) => (
+            <InputText
+              {...field}
+              className="form-control"
+              type="password"
+              placeholder="Password"
+              label="Password"
+              error={errors.password?.message}
+            />
+          )}
         />
 
         <button
           style={{
             backgroundColor: "var(--primary)",
           }}
+          type="submit"
+          disabled={Object.keys(errors).length > 0}
           className="btn btn-success w-100 d-flex align-items-center justify-content-center py-3"
         >
           <svg

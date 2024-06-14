@@ -1,7 +1,10 @@
-import { lazy } from "react";
+import { lazy, useEffect } from "react";
 import { BrowserRouter, Navigate, Route } from "react-router-dom";
 import { RouterWithNotFound } from "./RouterWithNotFound";
 import { publicRoutes } from "../routes";
+import { useMessageStore, useWindowSize } from "../hooks";
+import { showMessage } from "../utilities";
+import { Toaster } from "sonner";
 
 const LoginPage = lazy(() => import("../auth/pages/LoginPage"));
 
@@ -13,25 +16,44 @@ const CartPage = lazy(() => import("../cart/pages/CartPage"));
 
 const HomePage = lazy(() => import("../home/pages/HomePage"));
 
+
 const { LOGIN, REGISTER, HOME, SHOP, SERVICES, BLOG, CONTACT, PERFIL, CAR } = publicRoutes;
 
 
 export const AppRouter = () => {
+  const { isMobile } = useWindowSize();
+  const { messages, type, startClearMessages } = useMessageStore();
+
+  useEffect(() => {
+    if (!messages.length) return;
+    showMessage(type, messages);
+    startClearMessages();
+  }, [messages]);
+
   return (
     <BrowserRouter>
+      <Toaster
+        position="top-right"
+        // theme={isDark ? "dark" : "light"}
+        richColors
+        expand={!isMobile}
+        pauseWhenPageIsHidden
+        visibleToasts={6}
+        duration={5000}
+        closeButton
+      />
       <RouterWithNotFound>
         
         <Route path="/" element={<Navigate to={LOGIN} />} />
         <Route path={LOGIN} element={<LoginPage />} />
         <Route path={REGISTER} element={<RegisterPage />} />
-        
+
         <Route path={HOME} element={<HomePage />} />
         <Route path={SHOP} element={<ShopPage />} />
         <Route path={SERVICES} element={<ShopPage />} />
         <Route path={BLOG} element={<ShopPage />} />
         <Route path={PERFIL} element={<LoginPage />} />
-        <Route path={CAR} element={< CartPage />} />
-
+        <Route path={CAR} element={<CartPage />} />
       </RouterWithNotFound>
     </BrowserRouter>
   );

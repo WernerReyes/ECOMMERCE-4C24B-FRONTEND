@@ -3,48 +3,98 @@ import { AuthLayout } from "../layout/AuthLayout";
 import { InputText } from "../../components";
 import { publicRoutes } from "../../routes";
 import { Link } from "react-router-dom";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Controller, useForm } from "react-hook-form";
+import { registerValidation } from "../validations";
+import { useAuthStore } from "../../hooks";
 
 const { LOGIN } = publicRoutes;
 
 export const RegisterPage = () => {
+  const { startRegister } = useAuthStore();
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(registerValidation),
+  });
+
+  const handleRegister = async (data) => startRegister(data);
+
+  
+
   return (
-    <AuthLayout
-     large="1000px"
-    >
-      <form className="container-fluid w-100"
-    //   style={{ maxWidth: "300px" }}
+    <AuthLayout large="1000px">
+      <form
+        className="container-fluid w-100"
+        onSubmit={handleSubmit(handleRegister)}
       >
         <div className="row">
-        <InputText
-          containerClassName="mb-3 col-lg-6"
-          type="name"
-          placeholder="name"
-          name={"name"}
-          label={"Name"}
-        />
-        <InputText
-         containerClassName="mb-3 col-lg-6"
-          type="lastname"
-          placeholder="Lastname"
-          name={"lastname"}
-          label={"Lastname"}
-        />
+          <Controller
+            name="first_name"
+            control={control}
+            defaultValue=""
+            render={({ field }) => (
+              <InputText
+                {...field}
+                containerClassName="mb-3 col-lg-6"
+                type="text"
+                placeholder="name"
+                label="Name"
+                error={errors[field.name]?.message}
+              />
+            )}
+          />
+
+          <Controller
+            name="last_name"
+            control={control}
+            defaultValue=""
+            render={({ field }) => (
+              <InputText
+                {...field}
+                containerClassName="mb-3 col-lg-6"
+                type="text"
+                placeholder="Lastname"
+                label="Lastname"
+                error={errors[field.name]?.message}
+              />
+            )}
+          />
         </div>
         <div className="row">
-        <InputText
-          className="form-control mb-3 col-6"
-          type="email"
-          placeholder="Email"
-          name={"email"}
-          label={"Email"}
-        />
-        <InputText
-          className="form-control mb-3 col-6"
-          type="password"
-          placeholder="Password"
-          name={"password"}
-          label={"Password"}
-        />
+          <Controller
+            name="email"
+            control={control}
+            defaultValue=""
+            render={({ field }) => (
+              <InputText
+                {...field}
+                containerClassName="mb-3 col-lg-6"
+                type="email"
+                placeholder="Email"
+                label="Email"
+                error={errors[field.name]?.message}
+              />
+            )}
+          />
+
+          <Controller
+            name="password"
+            control={control}
+            defaultValue=""
+            render={({ field }) => (
+              <InputText
+                {...field}
+                containerClassName="mb-3 col-lg-6"
+                type="password"
+                placeholder="Password"
+                label="Password"
+                error={errors[field.name]?.message}
+              />
+            )}
+          />
         </div>
 
         <button
@@ -52,6 +102,8 @@ export const RegisterPage = () => {
             backgroundColor: "var(--primary)",
           }}
           className="btn btn-success w-100 d-flex align-items-center justify-content-center py-3"
+          type="submit"
+          disabled={Object.keys(errors).length > 0}
         >
           <svg
             className="me-2"
@@ -68,13 +120,13 @@ export const RegisterPage = () => {
             <circle cx="8.5" cy="7" r="4" />
             <path d="M20 8v6M23 11h-6" />
           </svg>
-            <span>Register</span>
+          <span>Register</span>
         </button>
       </form>
       <div className="d-flex justify-content-center align-items-center w-100 mt-4">
         <span className="text-secondary">Already have an account?</span>
         <Link to={LOGIN} className="ms-2 text-primary">
-            Login
+          Login
         </Link>
       </div>
     </AuthLayout>
