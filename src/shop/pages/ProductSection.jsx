@@ -5,42 +5,42 @@ function ProductSection() {
     {
       title: "Nordic Chair",
       price: "$50.00",
-      image: "../../../public/image/product-1.png",
+      image: "images/product-1.png",
     },
     {
       title: "Nordic Chair",
       price: "$50.00",
-      image: "../../../public/image/product-1.png",
+      image: "images/product-1.png",
     },
     {
       title: "Kruzo Aero Chair",
       price: "$78.00",
-      image: "../../../public/image/product-1.png",
+      image: "images/product-1.png",
     },
     {
       title: "Ergonomic Chair",
       price: "$43.00",
-      image: "../../../public/image/product-1.png",
+      image: "images/product-1.png",
     },
     {
       title: "Nordic Chair",
       price: "$50.00",
-      image: "../../../public/image/product-1.png",
+      image: "images/product-1.png",
     },
     {
       title: "Nordic Chair",
       price: "$50.00",
-      image: "../../../public/image/product-1.png",
+      image: "images/product-1.png",
     },
     {
       title: "Kruzo Aero Chair",
       price: "$78.00",
-      image: "../../../public/image/product-1.png",
+      image: "images/product-1.png",
     },
     {
       title: "Ergonomic Chair",
       price: "$43.00",
-      image: "../../../public/image/product-1.png",
+      image: "images/product-1.png",
     },
   ];
 
@@ -62,7 +62,7 @@ function ProductSection() {
                 <strong className="product-price">{product.price}</strong>
                 <span className="icon-cross">
                   <img
-                    src="../../../public/image/cross.svg"
+                    src="images/cross.svg"
                     className="img-fluid"
                     alt="cross"
                   />

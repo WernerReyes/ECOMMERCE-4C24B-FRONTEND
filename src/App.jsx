@@ -4,8 +4,12 @@ import { AppRouter } from "./router/AppRouter";
 //import ShopPage from "./shop/pages/ShopPage";
 
 
+
 function App() {
   return (
+
+    
+
     <>
       <Suspense
         fallback={
@@ -21,8 +25,10 @@ function App() {
       {/* <ShopPage /> */}
 
 
+
     </>
   );
+
 }
 
 export default App;
