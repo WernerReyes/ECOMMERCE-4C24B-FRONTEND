@@ -1,4 +1,4 @@
-:root {
+/*:root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -20,7 +20,7 @@ a {
 }
 a:hover {
   color: #3b5d50;
-}
+}*/
 
 /* body {
   margin: 0;
@@ -31,7 +31,7 @@ a:hover {
 } */
 
 
-
+/*
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -62,7 +62,7 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-} 
+} */
 
 /*
 ===============================================================================================
@@ -73,6 +73,14 @@ button:focus-visible {
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 
+.active-link {
+  color: #f00;
+  /* Cambia esto por el color que prefieras */
+}
+.imgLogo{
+ width: 70px;
+ height: 100px;
+}
 body {
   overflow-x: hidden;
   position: relative;

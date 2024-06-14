@@ -11,12 +11,13 @@ const ShopPage = lazy(() => import("../shop/pages/ShopPage"));
 
 const CartPage = lazy(() => import("../cart/pages/CartPage"));
 
-const { LOGIN, REGISTER, HOME, SHOP, SERVICES, BLOG, CONTACT, PERFIL, CAR } = publicRoutes;
+const { LOGIN, REGISTER, HOME, SHOP, SERVICES, BLOG, PERFIL, CAR } = publicRoutes;
 
 export const AppRouter = () => {
   return (
     <BrowserRouter>
       <RouterWithNotFound>
+        
         <Route path="/" element={<Navigate to={LOGIN} />} />
         <Route path={LOGIN} element={<LoginPage />} />
         <Route path={REGISTER} element={<RegisterPage />} />

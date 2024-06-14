@@ -1,6 +1,4 @@
 import React from "react";
-//import "bootstrap/dist/css/bootstrap.min.css";
-//import "../styles/Navbar.css";
 import { Link } from "react-router-dom";
 import { publicRoutes } from "../routes";
 
@@ -9,16 +7,17 @@ const { HOME, SHOP, ABOUT, SERVICES, BLOG, CONTACT, PERFIL, CAR} = publicRoutes;
 function Navbar() {
   return (
     <nav
-      class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark"
+      className="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark"
       arial-label="Furni navigation bar"
     >
-      <div class="container">
-        <a class="navbar-brand" href="index.html">
-          Furni<span>.</span>
-        </a>
+      <div className="container">
+        <Link to={HOME} className="navbar-brand">
+          <img src="images/logo.png" alt="logo" className="imgLogo"/>
+          <span>.</span>
+        </Link>
 
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarsFurni"
@@ -26,13 +25,13 @@ function Navbar() {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarsFurni">
-          <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-            <li class="nav-item ">
-              <Link to={HOME} class="nav-link">
+        <div className="collapse navbar-collapse" id="navbarsFurni">
+          <ul className="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+            <li className="nav-item">
+              <Link to={HOME} className="nav-link">
                 Home
               </Link>
               {/* <L class="nav-link" href="index.html">Home</a> */}
@@ -42,42 +41,42 @@ function Navbar() {
 						<li><a class="nav-link" href="services.html">Services</a></li>
 						<li><a class="nav-link" href="blog.html">Blog</a></li>
 						<li><a class="nav-link" href="contact.html">Contact us</a></li> */}
-            <li class="nav-item ">
-              <Link to={SHOP} class="nav-link">
+            <li className="nav-item ">
+              <Link to={SHOP} className="nav-link">
                 Shop
               </Link>
             </li>
-            <li class="nav-item ">
-              <Link to={ABOUT} class="nav-link">
+            <li className="nav-item ">
+              <Link to={ABOUT} className="nav-link">
                 About us
               </Link>
             </li>
-            <li class="nav-item ">
-              <Link to={SERVICES} class="nav-link">
+            <li className="nav-item ">
+              <Link to={SERVICES} className="nav-link">
                 Services
               </Link>
             </li>
-            <li class="nav-item ">
-              <Link to={BLOG} class="nav-link">
+            <li className="nav-item ">
+              <Link to={BLOG} className="nav-link">
                 Blog
               </Link>
             </li>
 
-            <li class="nav-item ">
-              <Link to={CONTACT} class="nav-link">
+            <li className="nav-item ">
+              <Link to={CONTACT} className="nav-link">
                 Contact us
               </Link>
             </li>
           </ul>
 
-          <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+          <ul className="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
             <li>
-              <Link to={PERFIL} >
+              <Link to={PERFIL}>
                 <img src="images/user.svg" />
               </Link>
             </li>
             <li>
-              <Link to={CAR} >
+              <Link to={CAR}>
                 <img src="images/cart.svg" />
               </Link>
             </li>
