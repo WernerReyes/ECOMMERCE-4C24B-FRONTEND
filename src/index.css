@@ -1,17 +1,6 @@
-/*:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
+:root {
   --primary: #3b5d50;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
 }
 
 a {
@@ -20,7 +9,7 @@ a {
 }
 a:hover {
   color: #3b5d50;
-}*/
+}
 
 /* body {
   margin: 0;
@@ -31,7 +20,7 @@ a:hover {
 } */
 
 
-/*
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -50,7 +39,7 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-
+/*
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -63,6 +52,37 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 } */
+
+.color-text {
+  color: #e94d1c;
+  font-size: 35px;
+  font-weight: normal;
+}
+
+.stock {
+  margin: auto;
+}
+
+.sticker {
+  position: absolute;
+  width: 63px;
+  height: 63px;
+}
+
+.sticker-sale {
+  background: url(images/sale.png) no-repeat;
+}
+
+.addCar {
+  cursor: pointer;
+  background: #e94d1c;
+}
+
+.star {
+  font-size: 2rem;
+  color: gold;
+}
+
 
 /*
 ===============================================================================================
