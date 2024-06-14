@@ -38,7 +38,7 @@ function Navbar() {
           <ul className="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
             <li className={`nav-item ${isActive(HOME)}`}>
               <Link to={HOME} className="nav-link">
-                Home
+                Inicio
               </Link>
               {/* <L class="nav-link" href="index.html">Home</a> */}
             </li>
@@ -49,17 +49,17 @@ function Navbar() {
 						<li><a class="nav-link" href="contact.html">Contact us</a></li> */}
             <li className={`nav-item ${isActive(SHOP)}`}>
               <Link to={SHOP} className="nav-link">
-                Shop
+                Tienda
               </Link>
             </li>
             <li className={`nav-item ${isActive(ABOUT)}`}>
               <Link to={ABOUT} className="nav-link">
-                About us
+                Nosotros
               </Link>
             </li>
             <li className={`nav-item ${isActive(SERVICES)}`}>
               <Link to={SERVICES} className="nav-link">
-                Services
+                Servicios
               </Link>
             </li>
             <li className={`nav-item ${isActive(BLOG)}`}>
@@ -70,7 +70,7 @@ function Navbar() {
 
             <li className={`nav-item ${isActive(CONTACT)}`}>
               <Link to={CONTACT} className="nav-link">
-                Contact us
+                Contactanos
               </Link>
             </li>
           </ul>
