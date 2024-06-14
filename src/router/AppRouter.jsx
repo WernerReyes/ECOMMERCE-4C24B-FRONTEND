@@ -16,9 +16,8 @@ const CartPage = lazy(() => import("../cart/pages/CartPage"));
 
 const HomePage = lazy(() => import("../home/pages/HomePage"));
 
-
-const { LOGIN, REGISTER, HOME, SHOP, SERVICES, BLOG, CONTACT, PERFIL, CAR } = publicRoutes;
-
+const { LOGIN, REGISTER, HOME, SHOP, SERVICES, BLOG, CONTACT, PERFIL, CAR } =
+  publicRoutes;
 
 export const AppRouter = () => {
   const { isMobile } = useWindowSize();
@@ -43,7 +42,6 @@ export const AppRouter = () => {
         closeButton
       />
       <RouterWithNotFound>
-        
         <Route path="/" element={<Navigate to={LOGIN} />} />
         <Route path={LOGIN} element={<LoginPage />} />
         <Route path={REGISTER} element={<RegisterPage />} />
