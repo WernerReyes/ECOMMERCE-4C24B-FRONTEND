@@ -43,52 +43,52 @@ function Footer() {
           </div>
           <div className="col-lg-8">
             <div className="row links-wrap">
-              <div className="col-6 col-sm-6 col-md-3">
+              <div className="col-6 col-sm-6 col-md-4">
                 <ul className="list-unstyled">
                   <li>
-                    <a href="#">About us</a>
+                    <a href="#">Nosotros</a>
                   </li>
                   <li>
-                    <a href="#">Services</a>
+                    <a href="#">Servicios</a>
                   </li>
                   <li>
                     <a href="#">Blog</a>
                   </li>
                   <li>
-                    <a href="#">Contact us</a>
+                    <a href="#">Contactanos</a>
                   </li>
                 </ul>
               </div>
-              <div className="col-6 col-sm-6 col-md-3">
+              <div className="col-6  col-sm-6 col-md-4">
                 <ul className="list-unstyled">
                   <li>
-                    <a href="#">Support</a>
+                    <a href="#">Soportet</a>
                   </li>
                   <li>
-                    <a href="#">Knowledge base</a>
+                    <a href="#">Base de conocimiento</a>
                   </li>
                   <li>
-                    <a href="#">Live chat</a>
+                    <a href="#">Chat en vivo</a>
                   </li>
                 </ul>
               </div>
-              <div className="col-6 col-sm-6 col-md-3">
+              <div className="col-6 col-sm-6 col-md-4">
                 <ul className="list-unstyled">
                   <li>
-                    <a href="#">Jobs</a>
+                    <a href="#">Trabajo</a>
                   </li>
                   <li>
-                    <a href="#">Our team</a>
+                    <a href="#">Nuestro equipo</a>
                   </li>
                   <li>
-                    <a href="#">Leadership</a>
+                    <a href="#">Liderazgo</a>
                   </li>
                   <li>
-                    <a href="#">Privacy Policy</a>
+                    <a href="#">Politica de pricivacidad</a>
                   </li>
                 </ul>
               </div>
-              <div className="col-6 col-sm-6 col-md-3">
+              {/* <div className="col-6 col-sm-6 col-md-3">
                 <ul className="list-unstyled">
                   <li>
                     <a href="#">Nordic Chair</a>
@@ -100,7 +100,7 @@ function Footer() {
                     <a href="#">Ergonomic Chair</a>
                   </li>
                 </ul>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

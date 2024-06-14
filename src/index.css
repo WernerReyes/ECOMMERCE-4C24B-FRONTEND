@@ -1,26 +1,17 @@
-/*:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+:root {
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
   --primary: #3b5d50;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
-a {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+/* a {
   font-weight: 500;
   text-decoration: inherit;
 }
 a:hover {
   color: #3b5d50;
-}*/
+
+} */
 
 /* body {
   margin: 0;
@@ -31,7 +22,7 @@ a:hover {
 } */
 
 
-/*
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -50,7 +41,7 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-
+/*
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -64,6 +55,37 @@ button:focus-visible {
   }
 } */
 
+.color-text {
+  color: #e94d1c;
+  font-size: 35px;
+  font-weight: normal;
+}
+
+.stock {
+  margin: auto;
+}
+
+.sticker {
+  position: absolute;
+  width: 63px;
+  height: 63px;
+}
+
+.sticker-sale {
+  background: url(images/sale.png) no-repeat;
+}
+
+.addCar {
+  cursor: pointer;
+  background: #e94d1c;
+}
+
+.star {
+  font-size: 2rem;
+  color: gold;
+}
+
+
 /*
 ===============================================================================================
 ***********************************************************************************************
@@ -71,15 +93,16 @@ button:focus-visible {
 ===============================================================================================
 */
 
+
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 
 .active-link {
   color: #f00;
   /* Cambia esto por el color que prefieras */
 }
-.imgLogo{
- width: 70px;
- height: 100px;
+.imgLogo {
+  width: 70px;
+  height: 100px;
 }
 body {
   overflow-x: hidden;
@@ -97,9 +120,9 @@ body {
 
 a {
   text-decoration: none;
-  -webkit-transition: .3s all ease;
-  -o-transition: .3s all ease;
-  transition: .3s all ease;
+  -webkit-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
+  transition: 0.3s all ease;
   color: #2f2f2f;
   text-decoration: underline;
 }
@@ -124,8 +147,8 @@ a.more {
   font-weight: 600;
 }
 
-.custom-navbar .navbar-brand>span {
-  opacity: .4;
+.custom-navbar .navbar-brand > span {
+  opacity: 0.4;
 }
 
 .custom-navbar .navbar-toggler {
@@ -149,10 +172,10 @@ a.more {
 .custom-navbar .custom-navbar-nav li a {
   font-weight: 500;
   color: #ffffff !important;
-  opacity: .5;
-  -webkit-transition: .3s all ease;
-  -o-transition: .3s all ease;
-  transition: .3s all ease;
+  opacity: 0.5;
+  -webkit-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
+  transition: 0.3s all ease;
   position: relative;
 }
 
@@ -168,9 +191,9 @@ a.more {
     opacity: 1;
     visibility: visible;
     width: 0;
-    -webkit-transition: .15s all ease-out;
-    -o-transition: .15s all ease-out;
-    transition: .15s all ease-out;
+    -webkit-transition: 0.15s all ease-out;
+    -o-transition: 0.15s all ease-out;
+    transition: 0.15s all ease-out;
   }
 }
 
@@ -388,9 +411,9 @@ a.more {
   margin-bottom: 30px;
   position: relative;
   top: 0;
-  -webkit-transition: .3s all ease;
-  -o-transition: .3s all ease;
-  transition: .3s all ease;
+  -webkit-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
+  transition: 0.3s all ease;
 }
 
 .product-section .product-item h3 {
@@ -424,9 +447,9 @@ a.more {
   border-radius: 50%;
   opacity: 0;
   visibility: hidden;
-  -webkit-transition: .3s all ease;
-  -o-transition: .3s all ease;
-  transition: .3s all ease;
+  -webkit-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
+  transition: 0.3s all ease;
 }
 
 .product-section .product-item .icon-cross img {
@@ -448,9 +471,9 @@ a.more {
   height: 0%;
   z-index: -1;
   border-radius: 10px;
-  -webkit-transition: .3s all ease;
-  -o-transition: .3s all ease;
-  transition: .3s all ease;
+  -webkit-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
+  transition: 0.3s all ease;
 }
 
 .product-section .product-item:hover .product-thumbnail {
@@ -626,9 +649,9 @@ a.more {
 .popular-product .product-item-sm a {
   text-decoration: none;
   color: #2f2f2f;
-  -webkit-transition: .3s all ease;
-  -o-transition: .3s all ease;
-  transition: .3s all ease;
+  -webkit-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
+  transition: 0.3s all ease;
 }
 
 .popular-product .product-item-sm a:hover {
@@ -717,7 +740,7 @@ a.more {
   }
 }
 
-.testimonial-slider-wrap #testimonial-nav>span {
+.testimonial-slider-wrap #testimonial-nav > span {
   cursor: pointer;
   position: absolute;
   width: 58px;
@@ -726,12 +749,12 @@ a.more {
   border-radius: 50%;
   background: rgba(59, 93, 80, 0.1);
   color: #2f2f2f;
-  -webkit-transition: .3s all ease;
-  -o-transition: .3s all ease;
-  transition: .3s all ease;
+  -webkit-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
+  transition: 0.3s all ease;
 }
 
-.testimonial-slider-wrap #testimonial-nav>span:hover {
+.testimonial-slider-wrap #testimonial-nav > span:hover {
   background: #3b5d50;
   color: #ffffff;
 }
@@ -781,9 +804,9 @@ a.more {
   position: absolute;
   content: "";
   border-radius: 50%;
-  -webkit-transition: .3s all ease;
-  -o-transition: .3s all ease;
-  transition: .3s all ease;
+  -webkit-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
+  transition: 0.3s all ease;
   background-color: #d6d6d6;
 }
 
@@ -811,9 +834,9 @@ a.more {
 
 .blog-section .post-entry .post-thumbnail img {
   border-radius: 20px;
-  -webkit-transition: .3s all ease;
-  -o-transition: .3s all ease;
-  transition: .3s all ease;
+  -webkit-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
+  transition: 0.3s all ease;
 }
 
 .blog-section .post-entry .post-content-entry {
@@ -838,7 +861,7 @@ a.more {
 
 .blog-section .post-entry:hover .post-thumbnail img,
 .blog-section .post-entry:focus .post-thumbnail img {
-  opacity: .7;
+  opacity: 0.7;
 }
 
 .footer-section {
@@ -853,9 +876,9 @@ a.more {
 .footer-section a {
   text-decoration: none;
   color: #2f2f2f;
-  -webkit-transition: .3s all ease;
-  -o-transition: .3s all ease;
-  transition: .3s all ease;
+  -webkit-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
+  transition: 0.3s all ease;
 }
 
 .footer-section a:hover {
