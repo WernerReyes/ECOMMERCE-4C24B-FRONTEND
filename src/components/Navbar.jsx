@@ -1,6 +1,10 @@
 import React from "react";
 //import "bootstrap/dist/css/bootstrap.min.css";
 //import "../styles/Navbar.css";
+import { Link } from "react-router-dom";
+import { publicRoutes } from "../routes";
+
+const { HOME, SHOP, ABOUT, SERVICES, BLOG, CONTACT, PERFIL, CAR} = publicRoutes;
 
 function Navbar() {
   return (
@@ -28,47 +32,58 @@ function Navbar() {
         <div class="collapse navbar-collapse" id="navbarsFurni">
           <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
             <li class="nav-item ">
+<<<<<<< HEAD
               <a class="nav-link" href="HomePage.jsx">
+=======
+              <Link to={HOME} class="nav-link">
+>>>>>>> 058fd0388e73479f094d48f79fc92f4235ea5f84
                 Home
-              </a>
+              </Link>
+              {/* <L class="nav-link" href="index.html">Home</a> */}
             </li>
-            <li class="active">
-              <a class="nav-link" href="shop.html">
+            {/* <li class="active"><a class="nav-link" href="shop.html">Shop</a></li>
+						<li><a class="nav-link" href="about.html">About us</a></li>
+						<li><a class="nav-link" href="services.html">Services</a></li>
+						<li><a class="nav-link" href="blog.html">Blog</a></li>
+						<li><a class="nav-link" href="contact.html">Contact us</a></li> */}
+            <li class="nav-item ">
+              <Link to={SHOP} class="nav-link">
                 Shop
-              </a>
+              </Link>
             </li>
-            <li>
-              <a class="nav-link" href="about.html">
+            <li class="nav-item ">
+              <Link to={ABOUT} class="nav-link">
                 About us
-              </a>
+              </Link>
             </li>
-            <li>
-              <a class="nav-link" href="services.html">
+            <li class="nav-item ">
+              <Link to={SERVICES} class="nav-link">
                 Services
-              </a>
+              </Link>
             </li>
-            <li>
-              <a class="nav-link" href="blog.html">
+            <li class="nav-item ">
+              <Link to={BLOG} class="nav-link">
                 Blog
-              </a>
+              </Link>
             </li>
-            <li>
-              <a class="nav-link" href="contact.html">
+
+            <li class="nav-item ">
+              <Link to={CONTACT} class="nav-link">
                 Contact us
-              </a>
+              </Link>
             </li>
           </ul>
 
           <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
             <li>
-              <a class="nav-link" href="#">
+              <Link to={PERFIL} >
                 <img src="images/user.svg" />
-              </a>
+              </Link>
             </li>
             <li>
-              <a class="nav-link" href="cart.html">
+              <Link to={CAR} >
                 <img src="images/cart.svg" />
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -78,3 +93,4 @@ function Navbar() {
 }
 
 export default Navbar;
+
