@@ -1,6 +1,8 @@
 import { Suspense } from "react";
 import "./App.css";
 import { AppRouter } from "./router/AppRouter";
+//import ShopPage from "./shop/pages/ShopPage";
+
 
 function App() {
   return (
@@ -13,7 +15,12 @@ function App() {
         }
       >
         <AppRouter />
-      </Suspense>
+        
+      </Suspense> 
+
+      {/* <ShopPage /> */}
+
+
     </>
   );
 }

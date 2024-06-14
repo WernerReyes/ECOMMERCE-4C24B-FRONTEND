@@ -1,4 +1,4 @@
-/*:root {
+:root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -22,13 +22,13 @@ a:hover {
   color: #3b5d50;
 }
 
-body {
+/* body {
   margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-}
+} */
 
 
 
@@ -62,25 +62,20 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-} */
+} 
 
 /*
-Index
-
+===============================================================================================
+***********************************************************************************************
+***********************************************************************************************
+===============================================================================================
 */
+
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 
 body {
   overflow-x: hidden;
   position: relative;
-}
-
-.ss {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
 body {
