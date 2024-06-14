@@ -1,10 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { publicRoutes } from "../routes";
 
 const { HOME, SHOP, ABOUT, SERVICES, BLOG, CONTACT, PERFIL, CAR} = publicRoutes;
 
 function Navbar() {
+   
+  const location = useLocation();
+  const isActive = (path) => {
+    return path === location.pathname ? "active" : "";
+  }
+
   return (
     <nav
       className="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark"
@@ -12,7 +18,7 @@ function Navbar() {
     >
       <div className="container">
         <Link to={HOME} className="navbar-brand">
-          <img src="images/logo.png" alt="logo" className="imgLogo"/>
+          <img src="images/logo.png" alt="logo" className="imgLogo" />
           <span>.</span>
         </Link>
 
@@ -30,7 +36,7 @@ function Navbar() {
 
         <div className="collapse navbar-collapse" id="navbarsFurni">
           <ul className="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-            <li className="nav-item">
+            <li className={`nav-item ${isActive(HOME)}`}>
               <Link to={HOME} className="nav-link">
                 Home
               </Link>
@@ -41,28 +47,28 @@ function Navbar() {
 						<li><a class="nav-link" href="services.html">Services</a></li>
 						<li><a class="nav-link" href="blog.html">Blog</a></li>
 						<li><a class="nav-link" href="contact.html">Contact us</a></li> */}
-            <li className="nav-item ">
+            <li className={`nav-item ${isActive(SHOP)}`}>
               <Link to={SHOP} className="nav-link">
                 Shop
               </Link>
             </li>
-            <li className="nav-item ">
+            <li className={`nav-item ${isActive(ABOUT)}`}>
               <Link to={ABOUT} className="nav-link">
                 About us
               </Link>
             </li>
-            <li className="nav-item ">
+            <li className={`nav-item ${isActive(SERVICES)}`}>
               <Link to={SERVICES} className="nav-link">
                 Services
               </Link>
             </li>
-            <li className="nav-item ">
+            <li className={`nav-item ${isActive(BLOG)}`}>
               <Link to={BLOG} className="nav-link">
                 Blog
               </Link>
             </li>
 
-            <li className="nav-item ">
+            <li className={`nav-item ${isActive(CONTACT)}`}>
               <Link to={CONTACT} className="nav-link">
                 Contact us
               </Link>

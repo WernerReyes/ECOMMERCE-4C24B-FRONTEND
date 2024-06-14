@@ -3,21 +3,21 @@ import React from 'react';
 function We_Help(){
     return(
        
-        <div class="we-help-section">
-			<div class="container">
-				<div class="row justify-content-between">
-					<div class="col-lg-7 mb-5 mb-lg-0">
-						<div class="imgs-grid">
-							<div class="grid grid-1"><img src="images/img-grid-1.jpg" alt="Untree.co"></img></div>
-							<div class="grid grid-2"><img src="images/img-grid-2.jpg" alt="Untree.co"></img></div>
-							<div class="grid grid-3"><img src="images/img-grid-3.jpg" alt="Untree.co"></img></div>
+        <div className="we-help-section">
+			<div className="container">
+				<div className="row justify-content-between">
+					<div className="col-lg-7 mb-5 mb-lg-0">
+						<div className="imgs-grid">
+							<div className="grid grid-1"><img src="images/img-grid-1.jpg" alt="Untree.co"></img></div>
+							<div className="grid grid-2"><img src="images/img-grid-2.jpg" alt="Untree.co"></img></div>
+							<div className="grid grid-3"><img src="images/img-grid-3.jpg" alt="Untree.co"></img></div>
 						</div>
 					</div>
-					<div class="col-lg-5 ps-lg-5">
-						<h2 class="section-title mb-4">We Help You Make Modern Interior Design</h2>
+					<div className="col-lg-5 ps-lg-5">
+						<h2 className="section-title mb-4">We Help You Make Modern Interior Design</h2>
 						<p>Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
 
-						<ul class="list-unstyled custom-list my-4">
+						<ul className="list-unstyled custom-list my-4">
 							<li>Donec vitae odio quis nisl dapibus malesuada</li>
 							<li>Donec vitae odio quis nisl dapibus malesuada</li>
 							<li>Donec vitae odio quis nisl dapibus malesuada</li>

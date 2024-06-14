@@ -2,15 +2,15 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <div class="hero">
-      <div class="container">
-        <div class="row justify-content-between">
-          <div class="col-lg-5">
-            <div class="intro-excerpt">
+    <div className="hero">
+      <div className="container">
+        <div className="row justify-content-between">
+          <div className="col-lg-5">
+            <div className="intro-excerpt">
               <h1>Cart</h1>
             </div>
           </div>
-          <div class="col-lg-7"></div>
+          <div className="col-lg-7"></div>
         </div>
       </div>
     </div>

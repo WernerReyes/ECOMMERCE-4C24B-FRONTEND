@@ -29,7 +29,7 @@ export const AppRouter = () => {
         <Route path={SHOP} element={<ShopPage />} />
         <Route path={SERVICES} element={<ShopPage />} />
         <Route path={BLOG} element={<ShopPage />} />
-        <Route path={PERFIL} element={<ShopPage />} />
+        <Route path={PERFIL} element={<LoginPage />} />
         <Route path={CAR} element={< CartPage />} />
 
       </RouterWithNotFound>
