@@ -4,7 +4,7 @@ export const publicRoutes = {
   HOME: "/home",
   SHOP: "/shop",
   ABOUT: "/about us",
-  SERVICES: "/services",
+  DETAILPRODUCT: "/detail-product",
   BLOG: "/blog",
   CONTACT: "/contact",
   PERFIL: "/perfil",

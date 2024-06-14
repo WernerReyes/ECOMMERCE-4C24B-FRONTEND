@@ -18,7 +18,17 @@ const HomePage = lazy(() => import("../home/pages/HomePage"));
 
 const DetailProductPage = lazy(() => import("../detail-product/pages/DetailProductPage"));
 
-const { LOGIN, REGISTER, HOME, SHOP, SERVICES, BLOG, CONTACT, PERFIL, CAR } = publicRoutes;
+const {
+  LOGIN,
+  REGISTER,
+  HOME,
+  SHOP,
+  DETAILPRODUCT,
+  BLOG,
+  CONTACT,
+  PERFIL,
+  CAR,
+} = publicRoutes;
 
 
 export const AppRouter = () => {
@@ -50,7 +60,7 @@ export const AppRouter = () => {
 
         <Route path={HOME} element={<HomePage />} />
         <Route path={SHOP} element={<ShopPage />} />
-        <Route path={SERVICES} element={<DetailProductPage />} />
+        <Route path={DETAILPRODUCT} element={<DetailProductPage />} />
         <Route path={BLOG} element={<ShopPage />} />
         <Route path={PERFIL} element={<LoginPage />} />
         <Route path={CAR} element={<CartPage />} />

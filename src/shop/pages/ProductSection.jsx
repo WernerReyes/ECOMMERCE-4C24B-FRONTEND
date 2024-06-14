@@ -1,4 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { publicRoutes } from "../../routes";
+
+const { DETAILPRODUCT } = publicRoutes;
 
 function ProductSection() {
   const products = [
@@ -52,7 +56,7 @@ function ProductSection() {
         <div className="row">
           {products.map((product, index) => (
             <div key={index} className="col-12 col-md-4 col-lg-3 mb-5">
-              <a className="product-item" href="#">
+              <Link className="product-item" to={DETAILPRODUCT}>
                 <img
                   src={product.image}
                   className="img-fluid product-thumbnail"
@@ -67,7 +71,7 @@ function ProductSection() {
                     alt="cross"
                   />
                 </span>
-              </a>
+              </Link>
             </div>
           ))}
         </div>

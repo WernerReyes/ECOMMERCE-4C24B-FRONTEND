@@ -2,14 +2,14 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { publicRoutes } from "../routes";
 
-const { HOME, SHOP, ABOUT, SERVICES, BLOG, CONTACT, PERFIL, CAR} = publicRoutes;
+const { HOME, SHOP, ABOUT, SERVICES, BLOG, CONTACT, PERFIL, CAR } =
+  publicRoutes;
 
 function Navbar() {
-   
   const location = useLocation();
   const isActive = (path) => {
     return path === location.pathname ? "active" : "";
-  }
+  };
 
   return (
     <nav
@@ -40,13 +40,8 @@ function Navbar() {
               <Link to={HOME} className="nav-link">
                 Inicio
               </Link>
-              {/* <L class="nav-link" href="index.html">Home</a> */}
             </li>
-            {/* <li class="active"><a class="nav-link" href="shop.html">Shop</a></li>
-						<li><a class="nav-link" href="about.html">About us</a></li>
-						<li><a class="nav-link" href="services.html">Services</a></li>
-						<li><a class="nav-link" href="blog.html">Blog</a></li>
-						<li><a class="nav-link" href="contact.html">Contact us</a></li> */}
+
             <li className={`nav-item ${isActive(SHOP)}`}>
               <Link to={SHOP} className="nav-link">
                 Tienda
@@ -55,11 +50,6 @@ function Navbar() {
             <li className={`nav-item ${isActive(ABOUT)}`}>
               <Link to={ABOUT} className="nav-link">
                 Nosotros
-              </Link>
-            </li>
-            <li className={`nav-item ${isActive(SERVICES)}`}>
-              <Link to={SERVICES} className="nav-link">
-                Servicios
               </Link>
             </li>
             <li className={`nav-item ${isActive(BLOG)}`}>
@@ -94,4 +84,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
