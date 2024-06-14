@@ -44,7 +44,6 @@ export const AppRouter = () => {
         closeButton
       />
       <RouterWithNotFound>
-        
         <Route path="/" element={<Navigate to={LOGIN} />} />
         <Route path={LOGIN} element={<LoginPage />} />
         <Route path={REGISTER} element={<RegisterPage />} />

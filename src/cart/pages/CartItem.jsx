@@ -30,7 +30,7 @@ const CartItem = ({ image, name, price, quantity, total }) => {
           />
           <div className="input-group-append">
             <button className="btn btn-outline-black increase" type="button">
-              &plus;
+              +
             </button>
           </div>
         </div>
