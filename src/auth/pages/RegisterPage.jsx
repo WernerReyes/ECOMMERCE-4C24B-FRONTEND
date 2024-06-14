@@ -1,29 +1,51 @@
 import React from "react";
-import { InputText } from "../../components";
 import { AuthLayout } from "../layout/AuthLayout";
-import { Link } from "react-router-dom";
+import { InputText } from "../../components";
 import { publicRoutes } from "../../routes";
+import { Link } from "react-router-dom";
 
-const { REGISTER } = publicRoutes;
+const { LOGIN } = publicRoutes;
 
-const LoginPage = () => {
+export const RegisterPage = () => {
   return (
-    <AuthLayout >
-      <form className="w-100" style={{ maxWidth: "320px" }}>
+    <AuthLayout
+     large="1000px"
+    >
+      <form className="container-fluid w-100"
+    //   style={{ maxWidth: "300px" }}
+      >
+        <div className="row">
         <InputText
-          className="form-control mb-3"
+          containerClassName="mb-3 col-lg-6"
+          type="name"
+          placeholder="name"
+          name={"name"}
+          label={"Name"}
+        />
+        <InputText
+         containerClassName="mb-3 col-lg-6"
+          type="lastname"
+          placeholder="Lastname"
+          name={"lastname"}
+          label={"Lastname"}
+        />
+        </div>
+        <div className="row">
+        <InputText
+          className="form-control mb-3 col-6"
           type="email"
           placeholder="Email"
           name={"email"}
           label={"Email"}
         />
         <InputText
-          className="form-control mb-3"
+          className="form-control mb-3 col-6"
           type="password"
           placeholder="Password"
           name={"password"}
           label={"Password"}
         />
+        </div>
 
         <button
           style={{
@@ -46,17 +68,17 @@ const LoginPage = () => {
             <circle cx="8.5" cy="7" r="4" />
             <path d="M20 8v6M23 11h-6" />
           </svg>
-          <span>Sign In</span>
+            <span>Register</span>
         </button>
       </form>
       <div className="d-flex justify-content-center align-items-center w-100 mt-4">
-        <span className="text-secondary">Don't have an account?</span>
-        <Link to={REGISTER} className="ms-2 text-primary">
-          Register
+        <span className="text-secondary">Already have an account?</span>
+        <Link to={LOGIN} className="ms-2 text-primary">
+            Login
         </Link>
       </div>
     </AuthLayout>
   );
 };
 
-export default LoginPage;
+export default RegisterPage;
