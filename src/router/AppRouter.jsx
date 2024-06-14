@@ -25,7 +25,6 @@ export const AppRouter = () => {
         <Route path={SHOP} element={<ShopPage />} />
         <Route path={SERVICES} element={<ShopPage />} />
         <Route path={BLOG} element={<ShopPage />} />
-        <Route path={CONTACT} element={<ShopPage />} />
         <Route path={PERFIL} element={<ShopPage />} />
         <Route path={CAR} element={< CartPage />} />
 
