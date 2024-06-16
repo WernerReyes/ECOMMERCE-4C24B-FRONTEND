@@ -47,7 +47,10 @@ export const useAuthStore = () => {
                 dispatch(onLogin(user));
                 setStorage("token", token);
             })
-            .catch(console.error);
+            .catch(error => {
+                console.error(error);
+                dispatch(onLogout());
+            });
     };
 
     return {

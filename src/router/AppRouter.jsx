@@ -70,7 +70,7 @@ export const AppRouter = () => {
           <>
             <Route path={HOME} element={<HomePage />} />
             <Route path={SHOP} element={<ShopPage />} />
-            <Route path={SERVICES} element={<ShopPage />} />
+            {/* <Route path={SERVICES} element={<ShopPage />} /> */}
             <Route path={BLOG} element={<ShopPage />} />
             <Route path={PERFIL} element={<LoginPage />} />
             <Route path={CAR} element={<CartPage />} />
