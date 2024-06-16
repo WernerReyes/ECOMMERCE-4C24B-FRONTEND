@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { onLoadFurnitures, onLoadingFurniture } from "../../store";
+import { onLoadFurnitureDetail, onLoadFurnitures, onLoadingFurniture } from "../../store";
 import { FurnitureService } from "../../services";
 
 const furnitureService = new FurnitureService();
@@ -19,6 +19,16 @@ export const useFurnitureStore = () => {
             .catch(console.error);
     };
 
+    const startLoadingFurnitureDetail = async (id) => {
+        dispatch(onLoadingFurniture());
+
+        await furnitureService.getFurnitureById(id)
+            .then(({ data }) => {
+                dispatch(onLoadFurnitureDetail(data));
+            })
+            .catch(console.error);
+    };
+
     return {
         //* Atributes
         isLoading,
@@ -27,5 +37,6 @@ export const useFurnitureStore = () => {
 
         //* Functions
         startLoadingFurniture,
+        startLoadingFurnitureDetail 
     };
 }

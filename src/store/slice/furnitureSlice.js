@@ -36,6 +36,14 @@ export const furnitureSlice = createSlice({
             };
         },
 
+        onLoadFurnitureDetail: (state, { payload }) => {
+            return {
+                ...state,
+                furnitureDetail: furnitureAdapter(payload),
+                isLoading: false,
+            };
+        },
+
         onLoadingFurniture: (state) => {
             return {
                 ...state,
@@ -46,7 +54,8 @@ export const furnitureSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { 
+export const {
     onLoadFurnitures,
+    onLoadFurnitureDetail,
     onLoadingFurniture,
- } = furnitureSlice.actions;
+} = furnitureSlice.actions;

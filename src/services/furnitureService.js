@@ -14,8 +14,7 @@ export class FurnitureService {
 
     async getFurnitureById(id) {
         try {
-            const response = await apiPublic.get(`${this.urlPrefix}/${id}`);
-            return response.data;
+            return await apiPublic.get(`${this.urlPrefix}/${id}/`);
         } catch (error) {
             throw error;
         }

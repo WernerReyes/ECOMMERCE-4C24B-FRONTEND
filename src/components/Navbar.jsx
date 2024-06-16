@@ -7,7 +7,7 @@ import { Avatar } from "./Avatar";
 const { HOME, SHOP, ABOUT, PERFIL, CAR } = publicRoutes;
 
 function Navbar() {
-  const { quantity } = useCart();
+  const { totalQuantity } = useCart();
   const { authenticatedUser } = useAuthStore();
   const location = useLocation();
   const isActive = (path) => {
@@ -21,7 +21,7 @@ function Navbar() {
     >
       <div className="container">
         <Link to={HOME} className="navbar-brand bg-body p-3 rounded-circle">
-          <img src="images/logo.png" alt="logo" className="imgLogo" />
+          <img src="/images/logo.png" alt="logo" className="imgLogo" />
           <span>.</span>
         </Link>
 
@@ -66,13 +66,13 @@ function Navbar() {
               {authenticatedUser.name ? (
                 <Avatar user={authenticatedUser} />
               ) : (
-                <img src="images/user.svg" />
+                <img src="/images/user.svg" />
               )}
             </li>
             <li>
               <Link to={CAR}>
-                <span className="badge">{quantity}</span>
-                <img src="images/cart.svg" />
+                <span className="badge">{totalQuantity}</span>
+                <img src="/images/cart.svg" />
               </Link>
             </li>
           </ul>

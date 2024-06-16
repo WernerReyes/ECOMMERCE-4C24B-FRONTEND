@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { onAddToCart, onRemoveFromCart } from "../store";
 
 export const useCart = () => {
-    const { isLoading, cart, quantity } = useSelector((state) => state.cart);
+    const { isLoading, cart, totalQuantity } = useSelector((state) => state.cart);
     const dispatch = useDispatch();
 
     const startAddingToCart = (product) => {
@@ -15,7 +15,7 @@ export const useCart = () => {
 
     return {
         cart,
-        quantity,
+        totalQuantity,
         isLoading,
         startAddingToCart,
         startRemovingFromCart,
