@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { publicRoutes } from "../routes";
 
-const { HOME, SHOP, ABOUT, SERVICES, BLOG, CONTACT, PERFIL, CAR } =
+const { HOME, SHOP, ABOUT, PERFIL, CAR } =
   publicRoutes;
 
 function Navbar() {
@@ -50,17 +50,6 @@ function Navbar() {
             <li className={`nav-item ${isActive(ABOUT)}`}>
               <Link to={ABOUT} className="nav-link">
                 Nosotros
-              </Link>
-            </li>
-            <li className={`nav-item ${isActive(BLOG)}`}>
-              <Link to={BLOG} className="nav-link">
-                Blog
-              </Link>
-            </li>
-
-            <li className={`nav-item ${isActive(CONTACT)}`}>
-              <Link to={CONTACT} className="nav-link">
-                Contactanos
               </Link>
             </li>
           </ul>
