@@ -19,7 +19,7 @@ function Producto_section(){
         const onlyThreeProducts = response.data.slice(0, 3);
         setProducts(onlyThreeProducts);
 
-        console.log(products); 
+   
       } catch (error) {
         console.error("Error al cargar los productos:", error);
       }
@@ -27,8 +27,6 @@ function Producto_section(){
 
     fetchProducts(); 
   }, []);
-
-  console.log(products);
 
   return (
     <div className="product-section">
