@@ -1,4 +1,4 @@
-import { api } from "../config";
+import { apiPrivate } from "../config";
 export class AuthService {
 
     constructor() {
@@ -7,7 +7,7 @@ export class AuthService {
 
     async register(data) {
         try {
-            const response = await api.post(`${this.urlPrefix}/register`, data);
+            const response = await apiPrivate.post(`${this.urlPrefix}/register`, data);
             return response.data;
         } catch (error) {
             throw error;
@@ -16,12 +16,21 @@ export class AuthService {
 
     async login(data) {
         try {
-            const response = await api.post(`${this.urlPrefix}/login`, data);
+            const response = await apiPrivate.post(`${this.urlPrefix}/login`, data);
             return response.data;
         } catch (error) {
             throw error;
         }
 
+    }
+
+    async revalidateToken() {
+        try {
+            const response = await apiPrivate.get(`${this.urlPrefix}/revalidate-token`);
+            return response.data;
+        } catch (error) {
+            throw error;
+        }
     }
 
 }

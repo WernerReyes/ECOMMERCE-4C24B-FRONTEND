@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { publicRoutes } from "../routes";
+import { useAuthStore, useCart } from "../hooks";
+import { Avatar } from "./Avatar";
 import { CategoryService } from "../services/categoryService";
 
 const { HOME, SHOP, ABOUT, PERFIL, CAR } = publicRoutes;
 
 function Navbar() {
+  const { totalQuantity } = useCart();
+  const { authenticatedUser } = useAuthStore();
   const location = useLocation();
   const [categories, setCategories] = useState([]);
   const categoryService = new CategoryService();
@@ -30,7 +34,7 @@ function Navbar() {
   return (
     <nav className="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Furni navigation bar">
       <div className="container">
-        <Link to={HOME} className="navbar-brand">
+        <Link to={HOME} className="navbar-brand bg-body p-3 rounded-circle">
           <img src="/images/logo.png" alt="logo" className="imgLogo" />
           <span>.</span>
         </Link>
@@ -54,7 +58,11 @@ function Navbar() {
                 Inicio
               </Link>
             </li>
-
+            {/* <li class="active"><a class="nav-link" href="shop.html">Shop</a></li>
+              <li><a class="nav-link" href="about.html">About us</a></li>
+              <li><a class="nav-link" href="services.html">Services</a></li>
+              <li><a class="nav-link" href="blog.html">Blog</a></li>
+              <li><a class="nav-link" href="contact.html">Contact us</a></li> */}
             <li className={`nav-item ${isActive(SHOP)}`}>
               <Link to={SHOP} className="nav-link">
                 Tienda
@@ -81,16 +89,20 @@ function Navbar() {
                 Nosotros
               </Link>
             </li>
+          </ul>
 
-            <li className={`nav-item ${isActive(PERFIL)}`}>
-              <Link to={PERFIL} className="nav-link">
-                Perfil
-              </Link>
+          <ul className="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+            <li>
+              {authenticatedUser.name ? (
+                <Avatar user={authenticatedUser} />
+              ) : (
+                <img src="/images/user.svg" />
+              )}
             </li>
-
-            <li className={`nav-item ${isActive(CAR)}`}>
-              <Link to={CAR} className="nav-link">
-                Carrito
+            <li>
+              <Link to={CAR}>
+                <span className="badge">{totalQuantity}</span>
+                <img src="/images/cart.svg" />
               </Link>
             </li>
           </ul>
