@@ -53,9 +53,9 @@ function Why_choose(){
 						</div>
 					</div>
 
-					<div class="col-lg-5">
-						<div class="img-wrap">
-							<img src="images/why-choose-us-img.jpg" alt="Images" class="img-fluid"></img>
+					<div className="col-lg-5">
+						<div className="img-wrap">
+							<img src="images/why-choose-us-img.jpg" alt="Images" className="img-fluid"></img>
 						</div>
 					</div>
 

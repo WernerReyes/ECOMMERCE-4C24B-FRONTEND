@@ -46,12 +46,12 @@ function Producto_section(){
 			
 					<div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
 						<a className="product-item" href="cart.html">
-							<img src="images/product-3.png" class="img-fluid product-thumbnail"></img>
-							<h3 class="product-title">Ergonomic Chair</h3>
-							<strong class="product-price">s/650.00</strong>
+							<img src="images/product-3.png" className="img-fluid product-thumbnail"></img>
+							<h3 className="product-title">Ergonomic Chair</h3>
+							<strong className="product-price">s/650.00</strong>
 
-							<span class="icon-cross">
-								<img src="images/cross.svg" class="img-fluid"></img>
+							<span className="icon-cross">
+								<img src="images/cross.svg" className="img-fluid"></img>
 							</span>
 						</a>
 					</div>
