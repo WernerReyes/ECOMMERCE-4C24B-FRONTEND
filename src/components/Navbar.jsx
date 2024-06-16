@@ -2,8 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { publicRoutes } from "../routes";
 
-const { HOME, SHOP, ABOUT, PERFIL, CAR } =
-  publicRoutes;
+const { HOME, SHOP, ABOUT, PERFIL, CAR } = publicRoutes;
 
 function Navbar() {
   const location = useLocation();
