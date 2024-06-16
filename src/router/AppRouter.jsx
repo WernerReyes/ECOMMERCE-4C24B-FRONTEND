@@ -17,8 +17,20 @@ const CartPage = lazy(() => import("../cart/pages/CartPage"));
 
 const HomePage = lazy(() => import("../home/pages/HomePage"));
 
-const { LOGIN, REGISTER, HOME, SHOP, SERVICES, BLOG, CONTACT, PERFIL, CAR } =
-  publicRoutes;
+const DetailProductPage = lazy(() => import("../detail-product/pages/DetailProductPage"));
+
+const {
+  LOGIN,
+  REGISTER,
+  HOME,
+  SHOP,
+  DETAILPRODUCT,
+  BLOG,
+  CONTACT,
+  PERFIL,
+  CAR,
+} = publicRoutes;
+
 
 export const AppRouter = () => {
   const { isMobile } = useWindowSize();

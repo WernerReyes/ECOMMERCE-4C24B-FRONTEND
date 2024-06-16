@@ -6,12 +6,15 @@ import { Avatar } from "./Avatar";
 
 const { HOME, SHOP, ABOUT, SERVICES, BLOG, CONTACT, PERFIL, CAR } =
   publicRoutes;
+const { HOME, SHOP, ABOUT, SERVICES, BLOG, CONTACT, PERFIL, CAR } =
+  publicRoutes;
 
 function Navbar() {
   const { authenticatedUser } = useAuthStore();
   const location = useLocation();
   const isActive = (path) => {
     return path === location.pathname ? "active" : "";
+  };
   };
 
   return (
@@ -43,7 +46,6 @@ function Navbar() {
               <Link to={HOME} className="nav-link">
                 Inicio
               </Link>
-              {/* <L class="nav-link" href="index.html">Home</a> */}
             </li>
             {/* <li class="active"><a class="nav-link" href="shop.html">Shop</a></li>
               <li><a class="nav-link" href="about.html">About us</a></li>
@@ -58,11 +60,6 @@ function Navbar() {
             <li className={`nav-item ${isActive(ABOUT)}`}>
               <Link to={ABOUT} className="nav-link">
                 Nosotros
-              </Link>
-            </li>
-            <li className={`nav-item ${isActive(SERVICES)}`}>
-              <Link to={SERVICES} className="nav-link">
-                Servicios
               </Link>
             </li>
             <li className={`nav-item ${isActive(BLOG)}`}>
