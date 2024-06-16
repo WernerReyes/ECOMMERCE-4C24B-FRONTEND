@@ -8,17 +8,16 @@ function Footer() {
           <div className="col-lg-4">
             <div className="mb-4 footer-logo-wrap">
               <a href="#" className="footer-logo">
-
                 <img src="/images/logo.png" alt="logo" className="imgLogo" />
-
                 <span>.</span>
               </a>
             </div>
             <p className="mb-4">
-              Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio
-              quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam
-              vulputate velit imperdiet dolor tempor tristique. Pellentesque
-              habitant
+              En "De Buena Madera", ofrecemos muebles de alta calidad, diseñados
+              para durar y embellecer tu hogar. Descubre piezas únicas
+              elaboradas con los mejores materiales y un estilo inigualable.
+              Transforma tus espacios con nuestro toque de elegancia y
+              durabilidad.
             </p>
             <ul className="list-unstyled custom-social">
               <li>
@@ -90,19 +89,6 @@ function Footer() {
                   </li>
                 </ul>
               </div>
-              {/* <div className="col-6 col-sm-6 col-md-3">
-                <ul className="list-unstyled">
-                  <li>
-                    <a href="#">Nordic Chair</a>
-                  </li>
-                  <li>
-                    <a href="#">Kruzo Aero</a>
-                  </li>
-                  <li>
-                    <a href="#">Ergonomic Chair</a>
-                  </li>
-                </ul>
-              </div> */}
             </div>
           </div>
         </div>
@@ -111,19 +97,19 @@ function Footer() {
             <div className="col-lg-6">
               <p className="mb-2 text-center text-lg-start">
                 Copyright &copy;{" "}
-                <script>document.write(new Date().getFullYear());</script>. All
-                Rights Reserved. &mdash; Designed with love by{" "}
-                <a href="https://untree.co">Untree.co</a>
-                Distributed By <a href="https://themewagon.com">ThemeWagon</a>
+                <script>document.write(new Date().getFullYear());</script>.
+                Todos los derechos reservados. &mdash; Diseñado por{" "}
+                <a href="https://untree.co">Tecsup - La buena madera</a>
+               
               </p>
             </div>
             <div className="col-lg-6 text-center text-lg-end">
               <ul className="list-unstyled d-inline-flex ms-auto">
                 <li className="me-4">
-                  <a href="#">Terms &amp; Conditions</a>
+                  <a href="#">Terminos &amp; Condiciones</a>
                 </li>
                 <li>
-                  <a href="#">Privacy Policy</a>
+                  <a href="#">Politicas y privacidad</a>
                 </li>
               </ul>
             </div>

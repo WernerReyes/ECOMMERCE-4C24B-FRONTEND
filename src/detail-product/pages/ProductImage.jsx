@@ -8,7 +8,7 @@ const ProductImage = () => {
         <div className="row product-item mb-2">
           <div className="col-4">
             <img
-              src="../../images/product-1.png"
+              src="/images/product-1.png"
               alt="Product Image 1"
               className="img-fluid"
             />
@@ -22,7 +22,7 @@ const ProductImage = () => {
         <div className="row product-item mb-2">
           <div className="col-4">
             <img
-              src="../../images/product-3.png"
+              src="/images/product-3.png"
               alt="Product Image 1"
               className="img-fluid"
             />
