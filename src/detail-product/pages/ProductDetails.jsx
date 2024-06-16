@@ -1,35 +1,66 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { useCart, useFurnitureStore } from "../../hooks";
 
 const ProductDetails = () => {
+  const { productId } = useParams();
+
+  const [product, setProduct] = useState("");
+
+  const { startLoadingFurnitureDetail, furnitureDetail, isLoading } =
+    useFurnitureStore();
+  const { startAddingToCart, startRemovingFromCart, cart, totalQuantity } = useCart();
+  const [quantity, setQuantity] = useState(0);
+
+  const handleAddToCart = () => {
+    startAddingToCart(furnitureDetail);
+  };
+
+  const handleRemoveFromCart = () => {
+    startRemovingFromCart(furnitureDetail);
+  };
+
+
+  useEffect(() => {
+    startLoadingFurnitureDetail(productId);
+  }, [productId]);
+
+  useEffect(() => {
+    console.log(cart);
+    const quantity = cart.find((item) => item.id === furnitureDetail.id)?.quantity || 0;
+    if (quantity >= 0) setQuantity(quantity);
+    console.log(quantity);
+  }, [furnitureDetail, cart]);
+
+
+  if (isLoading) return <div>Cargando...</div>;
+
   return (
     <div className="col-md-9 col-sm-7 bg-light mb-4">
       <div className="sticker sticker-sale"></div>
       <div className="row mt-4">
         <div className="col-md-6">
           <img
-            src="images/product-2.png"
+            src={furnitureDetail.image}
             alt="Model"
-            className="img-fluid mb-4"
+            className="img-fluid mb-4 tamañoItemDetail"
           />
         </div>
         <div className="col-md-6">
-          <h2 className="mb-0">Nombre del mueble</h2>
+          <h2 className="mb-0">{furnitureDetail.name}</h2>
           <hr />
           <div className="d-flex justify-content-between">
             <div className="price color-text">
-              <span>$</span>47.00
+              <span>$./ </span>
+              {furnitureDetail.price}
             </div>
             <div className="stock">
-              Disponibilidad: <strong>En stock</strong>
+              Stock: <strong>{furnitureDetail.stock}</strong>
             </div>
           </div>
           <hr />
           <div className="description">
-            <p>
-              Lorem ipsum dolor ut sit ame dolore adipiscing elit, sed nonumy
-              nibh sed euismod laoreet dolore magna aliquarm erat volutpat
-              Nostrud duis molestie at dolore.
-            </p>
+            <p>{furnitureDetail.description}</p>
           </div>
           <hr />
           <div className="d-flex">
@@ -37,22 +68,23 @@ const ProductDetails = () => {
               <div className="input-group-prepend">
                 <button
                   className="btn btn-outline-black increase"
+                  onClick={handleRemoveFromCart}
                   type="button"
                 >
                   -
                 </button>
               </div>
-              <input
-                type="text"
+              <span
+                
                 className="form-control text-center quantity-amount"
-                value="1"
-                placeholder=""
-                aria-label="Example text with button addon"
-                aria-describedby="button-addon1"
-              />
+               
+              >
+                {quantity}
+              </span>
               <div className="input-group-append">
                 <button
                   className="btn btn-outline-black increase"
+                  onClick={handleAddToCart}
                   type="button"
                 >
                   +

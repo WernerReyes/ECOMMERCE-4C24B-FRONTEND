@@ -5,12 +5,19 @@ import { setupInterceptors } from ".";
 const { VITE_API_URL } = getEnvs();
 
 
-export const api = axios.create({
+export const apiPrivate = axios.create({
     baseURL: VITE_API_URL,
     headers: {
         "Content-Type": "application/json",
     },
 });
 
-setupInterceptors(api);
+export const apiPublic = axios.create({
+    baseURL: VITE_API_URL,
+    headers: {
+        "Content-Type": "application/json",
+    },
+});
+
+setupInterceptors(apiPrivate);
 

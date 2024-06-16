@@ -13,12 +13,12 @@ const Cart = () => {
               <table className="table">
                 <thead>
                   <tr>
-                    <th className="product-thumbnail">Image</th>
-                    <th className="product-name">Product</th>
-                    <th className="product-price">Price</th>
-                    <th className="product-quantity">Quantity</th>
+                    <th className="product-thumbnail">Imagen</th>
+                    <th className="product-name">Producto</th>
+                    <th className="product-price">Precio</th>
+                    <th className="product-quantity">Cantidad</th>
                     <th className="product-total">Total</th>
-                    <th className="product-remove">Remove</th>
+                    <th className="product-remove">Eliminar</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -47,12 +47,12 @@ const Cart = () => {
             <div className="row mb-5">
               <div className="col-md-6 mb-3 mb-md-0">
                 <button className="btn btn-black btn-sm btn-block">
-                  Update Cart
+                  Actualizar carrito
                 </button>
               </div>
               <div className="col-md-6">
                 <button className="btn btn-outline-black btn-sm btn-block">
-                  Continue Shopping
+                  Continuar compra
                 </button>
               </div>
             </div>

@@ -1,8 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { AuthLayout } from "../layout/AuthLayout";
 import { InputText } from "../../components";
 import { publicRoutes } from "../../routes";
-import { Link } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import { registerValidation } from "../validations";
