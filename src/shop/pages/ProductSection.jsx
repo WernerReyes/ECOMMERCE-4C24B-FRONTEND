@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { publicRoutes } from "../../routes";
+//import { publicRoutes } from "../../routes";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const { DETAILPRODUCT } = publicRoutes;
+//const { DETAILPRODUCT } = publicRoutes;
 
 function ProductSection() {
 
@@ -24,18 +24,17 @@ function ProductSection() {
   }, []);
 
 
-console.log(products);
 
   return (
     <div className="untree_co-section product-section before-footer-section">
       <div className="container">
         <div className="row">
           {products.map((product, index) => (
-            <div
-              key={index}
-              className="col-12 col-md-4 col-lg-3 mb-5"
-            >
-              <Link className="product-item" to={DETAILPRODUCT}>
+            <div key={index} className="col-12 col-md-4 col-lg-3 mb-5">
+              <Link
+                className="product-item"
+                to={`/detail-product/${product.furniture_id}`}
+              >
                 <img
                   src={product.image}
                   className="img-fluid product-thumbnail tamañoItem"
