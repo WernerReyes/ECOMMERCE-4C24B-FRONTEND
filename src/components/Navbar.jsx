@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { publicRoutes } from "../routes";
-import { useAuthStore } from "../hooks";
+import { useAuthStore, useCart } from "../hooks";
 import { Avatar } from "./Avatar";
 
-const { HOME, SHOP, ABOUT, PERFIL, CAR } =
-  publicRoutes;
+const { HOME, SHOP, ABOUT, PERFIL, CAR } = publicRoutes;
 
 function Navbar() {
+  const { quantity } = useCart();
   const { authenticatedUser } = useAuthStore();
   const location = useLocation();
   const isActive = (path) => {
@@ -71,6 +71,7 @@ function Navbar() {
             </li>
             <li>
               <Link to={CAR}>
+                <span className="badge">{quantity}</span>
                 <img src="images/cart.svg" />
               </Link>
             </li>
