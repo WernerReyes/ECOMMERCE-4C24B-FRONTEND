@@ -37,7 +37,7 @@ const ProductDetails = () => {
           <hr />
           <div className="d-flex justify-content-between">
             <div className="price color-text">
-              <span>$</span>
+              <span>$./ </span>
               {product.price}
             </div>
             <div className="stock">
