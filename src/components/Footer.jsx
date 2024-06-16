@@ -9,12 +9,6 @@ function Footer() {
             <div className="mb-4 footer-logo-wrap">
               <a href="#" className="footer-logo">
 
-                <img
-                  src="../../images/logo.png"
-                  alt="logo"
-                  className="imgLogo"
-                />
-
                 <img src="/images/logo.png" alt="logo" className="imgLogo" />
 
                 <span>.</span>

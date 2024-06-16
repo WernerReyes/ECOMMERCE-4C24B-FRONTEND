@@ -46,11 +46,6 @@ function Navbar() {
                 Inicio
               </Link>
             </li>
-            {/* <li class="active"><a class="nav-link" href="shop.html">Shop</a></li>
-              <li><a class="nav-link" href="about.html">About us</a></li>
-              <li><a class="nav-link" href="services.html">Services</a></li>
-              <li><a class="nav-link" href="blog.html">Blog</a></li>
-              <li><a class="nav-link" href="contact.html">Contact us</a></li> */}
             <li className={`nav-item ${isActive(SHOP)}`}>
               <Link to={SHOP} className="nav-link">
                 Tienda
@@ -65,15 +60,6 @@ function Navbar() {
 
           <ul className="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
             <li>
-
-              <Link to={PERFIL}>
-                <img src="../../images/user.svg" />
-              </Link>
-            </li>
-            <li>
-              <Link to={CAR}>
-                <img src="../../images/cart.svg" />
-              </Link>
               {authenticatedUser.name ? (
                 <Avatar user={authenticatedUser} />
               ) : (
