@@ -6,15 +6,12 @@ import { Avatar } from "./Avatar";
 
 const { HOME, SHOP, ABOUT, SERVICES, BLOG, CONTACT, PERFIL, CAR } =
   publicRoutes;
-const { HOME, SHOP, ABOUT, SERVICES, BLOG, CONTACT, PERFIL, CAR } =
-  publicRoutes;
 
 function Navbar() {
   const { authenticatedUser } = useAuthStore();
   const location = useLocation();
   const isActive = (path) => {
     return path === location.pathname ? "active" : "";
-  };
   };
 
   return (
