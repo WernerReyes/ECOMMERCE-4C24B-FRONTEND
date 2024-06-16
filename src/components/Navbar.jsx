@@ -18,7 +18,7 @@ function Navbar() {
     >
       <div className="container">
         <Link to={HOME} className="navbar-brand">
-          <img src="images/logo.png" alt="logo" className="imgLogo" />
+          <img src="../../images/logo.png" alt="logo" className="imgLogo" />
           <span>.</span>
         </Link>
 
@@ -57,12 +57,12 @@ function Navbar() {
           <ul className="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
             <li>
               <Link to={PERFIL}>
-                <img src="images/user.svg" />
+                <img src="../../images/user.svg" />
               </Link>
             </li>
             <li>
               <Link to={CAR}>
-                <img src="images/cart.svg" />
+                <img src="../../images/cart.svg" />
               </Link>
             </li>
           </ul>

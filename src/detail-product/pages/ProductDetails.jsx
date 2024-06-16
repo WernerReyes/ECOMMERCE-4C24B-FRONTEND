@@ -5,7 +5,7 @@ import axios from "axios";
 const ProductDetails = () => {
   
   const { productId } = useParams();
-  const [product, setProduct] = useState(null);
+  const [product, setProduct] = useState("");
 
   useEffect(() => {
     axios
@@ -19,7 +19,6 @@ const ProductDetails = () => {
   }, [productId]);
 
   if (!product) return <div>Cargando...</div>;
-
 
   return (
     <div className="col-md-9 col-sm-7 bg-light mb-4">
