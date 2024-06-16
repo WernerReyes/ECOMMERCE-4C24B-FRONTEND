@@ -1,32 +1,16 @@
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useCart, useFurnitureStore } from "../../hooks";
+import { useFurnitureStore } from "../../hooks";
+import { AddAndRemoveFromCart } from "../../components";
 
 const ProductDetails = () => {
   const { productId } = useParams();
   const { startLoadingFurnitureDetail, furnitureDetail, isLoading } =
     useFurnitureStore();
-  const { startAddingToCart, startRemovingFromCart, cart, totalQuantity } = useCart();
-  const [quantity, setQuantity] = useState(0);
-
-  const handleAddToCart = () => {
-    startAddingToCart(furnitureDetail);
-  };
-
-  const handleRemoveFromCart = () => {
-    startRemovingFromCart(furnitureDetail);
-  };
-
+  
   useEffect(() => {
     startLoadingFurnitureDetail(productId);
   }, [productId]);
-
-  useEffect(() => {
-    console.log(cart);
-    const quantity = cart.find((item) => item.id === furnitureDetail.id)?.quantity || 0;
-    if (quantity >= 0) setQuantity(quantity);
-    console.log(quantity);
-  }, [furnitureDetail, cart]);
 
   if (isLoading) return <div>Cargando...</div>;
 
@@ -46,7 +30,7 @@ const ProductDetails = () => {
           <hr />
           <div className="d-flex justify-content-between">
             <div className="price color-text">
-              <span>$./ </span>
+              <span>S/. </span>
               {furnitureDetail.price}
             </div>
             <div className="stock">
@@ -59,38 +43,10 @@ const ProductDetails = () => {
           </div>
           <hr />
           <div className="d-flex">
-            <div className="input-group mb-3 d-flex align-items-center quantity-container mx-3">
-              <div className="input-group-prepend">
-                <button
-                  className="btn btn-outline-black increase"
-                  onClick={handleRemoveFromCart}
-                  type="button"
-                >
-                  -
-                </button>
-              </div>
-              <span
-                
-                className="form-control text-center quantity-amount"
-               
-              >
-                {quantity}
-              </span>
-              <div className="input-group-append">
-                <button
-                  className="btn btn-outline-black increase"
-                  onClick={handleAddToCart}
-                  type="button"
-                >
-                  +
-                </button>
-              </div>
-            </div>
-            <div className="btn-addCar">
-              <button type="submit" className="btn btn-primary addCar">
-                Agregar
-              </button>
-            </div>
+            <AddAndRemoveFromCart
+              furnitureDetail={furnitureDetail}
+              showAddButton
+            />
           </div>
           <hr />
           <div className="d-flex">

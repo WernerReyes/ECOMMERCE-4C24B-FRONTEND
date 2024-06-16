@@ -2,8 +2,10 @@ import React from "react";
 import CartItem from "./CartItem";
 import CartTotals from "./CartTotals";
 import CouponForm from "./CouponForm";
+import { useCartStore } from "../../hooks";
 
 const Cart = () => {
+  const { cart, isLoading, totalAmount } = useCartStore();
   return (
     <div className="untree_co-section before-footer-section">
       <div className="container">
@@ -22,20 +24,19 @@ const Cart = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <CartItem
-                    image="images/product-1.png"
-                    name="Product 1"
-                    price="49.00"
-                    quantity="1"
-                    total="49.00"
-                  />
-                  <CartItem
-                    image="images/product-2.png"
-                    name="Product 2"
-                    price="49.00"
-                    quantity="1"
-                    total="49.00"
-                  />
+                  {!isLoading && cart.length ? (
+                    cart.map((item) => (
+                      <CartItem
+                        {...item}
+                        key={item.id}
+                        total={item.quantity * Number(item.price)}
+                      />
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan="6">Cart is empty</td>
+                    </tr>
+                  )}
                 </tbody>
               </table>
             </div>
@@ -59,7 +60,7 @@ const Cart = () => {
             <CouponForm />
           </div>
           <div className="col-md-6 pl-5">
-            <CartTotals subtotal="230.00" total="230.00" />
+            <CartTotals subtotal={totalAmount} total={totalAmount} />
           </div>
         </div>
       </div>

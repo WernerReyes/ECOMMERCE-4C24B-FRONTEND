@@ -1,13 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { publicRoutes } from "../routes";
-import { useAuthStore, useCart } from "../hooks";
+import { useAuthStore, useCartStore } from "../hooks";
 import { Avatar } from "./Avatar";
 
-const { HOME, SHOP, ABOUT, PERFIL, CAR } = publicRoutes;
+const { HOME, SHOP, ABOUT, CAR } = publicRoutes;
 
 function Navbar() {
-  const { totalQuantity } = useCart();
+  const { totalQuantity } = useCartStore();
   const { authenticatedUser } = useAuthStore();
   const location = useLocation();
   const isActive = (path) => {
@@ -69,10 +69,39 @@ function Navbar() {
                 <img src="/images/user.svg" />
               )}
             </li>
-            <li>
+            <li
+              style={{
+                width: "40px",
+                height: "40px",
+                overflow: "hidden",
+                position: "relative",
+              }}
+            >
               <Link to={CAR}>
-                <span className="badge">{totalQuantity}</span>
-                <img src="/images/cart.svg" />
+                <span
+                  className="badge"
+                  style={{
+                    position: "absolute", 
+                    top: "0", 
+                    right: "0", 
+                    backgroundColor: "red", 
+                    color: "white", 
+                    borderRadius: "50%", 
+                    width: "20px", 
+                    height: "20px", 
+                    display: "flex", 
+                    justifyContent: "center", 
+                    alignItems: "center", 
+                    fontSize: "12px", 
+                    zIndex: "1", 
+                  }}
+                >
+                  {totalQuantity}
+                </span>
+                <img
+                  src="/images/cart.svg"
+                  style={{ position: "absolute", bottom: "10px", left: "10px" }}
+                />
               </Link>
             </li>
           </ul>
