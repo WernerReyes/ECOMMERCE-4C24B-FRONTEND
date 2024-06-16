@@ -1,21 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { publicRoutes } from "../routes";
+import { CategoryService } from "../services/categoryService";
 
-const { HOME, SHOP, ABOUT, SERVICES, BLOG, CONTACT, PERFIL, CAR} = publicRoutes;
+const { HOME, SHOP, ABOUT, SERVICES, PERFIL, CAR } = publicRoutes;
 
 function Navbar() {
-   
   const location = useLocation();
+  const [categories, setCategories] = useState([]);
+  const categoryService = new CategoryService();
+
+  useEffect(() => {
+    // Función para obtener las categorías desde la API
+    const fetchCategories = async () => {
+      try {
+        const categories = await categoryService.getCategories();
+        setCategories(categories);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    };
+
+    fetchCategories(); // Llamada a la función para obtener las categorías al cargar el componente
+  }, []);
+
   const isActive = (path) => {
     return path === location.pathname ? "active" : "";
-  }
+  };
 
   return (
-    <nav
-      className="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark"
-      arial-label="Furni navigation bar"
-    >
+    <nav className="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Furni navigation bar">
       <div className="container">
         <Link to={HOME} className="navbar-brand">
           <img src="images/logo.png" alt="logo" className="imgLogo" />
@@ -40,17 +54,25 @@ function Navbar() {
               <Link to={HOME} className="nav-link">
                 Inicio
               </Link>
-              {/* <L class="nav-link" href="index.html">Home</a> */}
             </li>
-            {/* <li class="active"><a class="nav-link" href="shop.html">Shop</a></li>
-						<li><a class="nav-link" href="about.html">About us</a></li>
-						<li><a class="nav-link" href="services.html">Services</a></li>
-						<li><a class="nav-link" href="blog.html">Blog</a></li>
-						<li><a class="nav-link" href="contact.html">Contact us</a></li> */}
             <li className={`nav-item ${isActive(SHOP)}`}>
               <Link to={SHOP} className="nav-link">
                 Tienda
               </Link>
+            </li>
+            <li className="nav-item dropdown">
+              <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                Categorías
+              </a>
+              <ul className="dropdown-menu">
+                {categories.map(category => (
+                  <li key={category.category_id}>
+                    <Link to={`/${category.name.toLowerCase()}`} className="dropdown-item text-dark">
+                      {category.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </li>
             <li className={`nav-item ${isActive(ABOUT)}`}>
               <Link to={ABOUT} className="nav-link">
@@ -62,28 +84,17 @@ function Navbar() {
                 Servicios
               </Link>
             </li>
-            <li className={`nav-item ${isActive(BLOG)}`}>
-              <Link to={BLOG} className="nav-link">
-                Blog
-              </Link>
-            </li>
-
-            <li className={`nav-item ${isActive(CONTACT)}`}>
-              <Link to={CONTACT} className="nav-link">
-                Contactanos
-              </Link>
-            </li>
           </ul>
 
           <ul className="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
             <li>
               <Link to={PERFIL}>
-                <img src="images/user.svg" />
+                <img src="images/user.svg" alt="Perfil" />
               </Link>
             </li>
             <li>
               <Link to={CAR}>
-                <img src="images/cart.svg" />
+                <img src="images/cart.svg" alt="Carrito" />
               </Link>
             </li>
           </ul>
@@ -94,4 +105,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
