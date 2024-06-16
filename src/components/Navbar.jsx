@@ -4,7 +4,7 @@ import { publicRoutes } from "../routes";
 import { useAuthStore } from "../hooks";
 import { Avatar } from "./Avatar";
 
-const { HOME, SHOP, ABOUT, SERVICES, BLOG, CONTACT, PERFIL, CAR } =
+const { HOME, SHOP, ABOUT, PERFIL, CAR } =
   publicRoutes;
 
 function Navbar() {
@@ -57,17 +57,6 @@ function Navbar() {
             <li className={`nav-item ${isActive(ABOUT)}`}>
               <Link to={ABOUT} className="nav-link">
                 Nosotros
-              </Link>
-            </li>
-            <li className={`nav-item ${isActive(BLOG)}`}>
-              <Link to={BLOG} className="nav-link">
-                Blog
-              </Link>
-            </li>
-
-            <li className={`nav-item ${isActive(CONTACT)}`}>
-              <Link to={CONTACT} className="nav-link">
-                Contactanos
               </Link>
             </li>
           </ul>

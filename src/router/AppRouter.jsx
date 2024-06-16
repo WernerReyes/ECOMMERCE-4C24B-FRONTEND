@@ -19,14 +19,15 @@ const HomePage = lazy(() => import("../home/pages/HomePage"));
 
 const DetailProductPage = lazy(() => import("../detail-product/pages/DetailProductPage"));
 
+const AboutPage = lazy(() => import("../abautUs/AboutPage"));
+
 const {
   LOGIN,
   REGISTER,
   HOME,
   SHOP,
   DETAILPRODUCT,
-  BLOG,
-  CONTACT,
+  ABOUT,
   PERFIL,
   CAR,
 } = publicRoutes;
@@ -66,16 +67,12 @@ export const AppRouter = () => {
         <Route path={LOGIN} element={<LoginPage />} />
         <Route path={REGISTER} element={<RegisterPage />} />
 
-        {status !== authStatus.CHECKING && (
-          <>
-            <Route path={HOME} element={<HomePage />} />
-            <Route path={SHOP} element={<ShopPage />} />
-            {/* <Route path={SERVICES} element={<ShopPage />} /> */}
-            <Route path={BLOG} element={<ShopPage />} />
-            <Route path={PERFIL} element={<LoginPage />} />
-            <Route path={CAR} element={<CartPage />} />
-          </>
-        )}
+        <Route path={HOME} element={<HomePage />} />
+        <Route path={SHOP} element={<ShopPage />} />
+        <Route path={DETAILPRODUCT} element={<DetailProductPage />} />
+        <Route path={ABOUT} element={<AboutPage />} />
+        <Route path={PERFIL} element={<LoginPage />} />
+        <Route path={CAR} element={<CartPage />} />
       </RouterWithNotFound>
     </BrowserRouter>
   );
