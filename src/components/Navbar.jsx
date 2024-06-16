@@ -34,8 +34,10 @@ function Navbar() {
   return (
     <nav className="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Furni navigation bar">
       <div className="container">
+
         <Link to={HOME} className="navbar-brand bg-body p-3 rounded-circle">
           <img src="/images/logo.png" alt="logo" className="imgLogo" />
+
           <span>.</span>
         </Link>
 
@@ -58,11 +60,6 @@ function Navbar() {
                 Inicio
               </Link>
             </li>
-            {/* <li class="active"><a class="nav-link" href="shop.html">Shop</a></li>
-              <li><a class="nav-link" href="about.html">About us</a></li>
-              <li><a class="nav-link" href="services.html">Services</a></li>
-              <li><a class="nav-link" href="blog.html">Blog</a></li>
-              <li><a class="nav-link" href="contact.html">Contact us</a></li> */}
             <li className={`nav-item ${isActive(SHOP)}`}>
               <Link to={SHOP} className="nav-link">
                 Tienda
@@ -103,6 +100,7 @@ function Navbar() {
               <Link to={CAR}>
                 <span className="badge">{totalQuantity}</span>
                 <img src="/images/cart.svg" />
+
               </Link>
             </li>
           </ul>

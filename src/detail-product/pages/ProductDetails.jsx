@@ -4,6 +4,9 @@ import { useCart, useFurnitureStore } from "../../hooks";
 
 const ProductDetails = () => {
   const { productId } = useParams();
+
+  const [product, setProduct] = useState("");
+
   const { startLoadingFurnitureDetail, furnitureDetail, isLoading } =
     useFurnitureStore();
   const { startAddingToCart, startRemovingFromCart, cart, totalQuantity } = useCart();
@@ -17,6 +20,7 @@ const ProductDetails = () => {
     startRemovingFromCart(furnitureDetail);
   };
 
+
   useEffect(() => {
     startLoadingFurnitureDetail(productId);
   }, [productId]);
@@ -27,6 +31,7 @@ const ProductDetails = () => {
     if (quantity >= 0) setQuantity(quantity);
     console.log(quantity);
   }, [furnitureDetail, cart]);
+
 
   if (isLoading) return <div>Cargando...</div>;
 
