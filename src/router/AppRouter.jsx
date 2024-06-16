@@ -2,9 +2,10 @@ import { lazy, useEffect } from "react";
 import { BrowserRouter, Navigate, Route } from "react-router-dom";
 import { RouterWithNotFound } from "./RouterWithNotFound";
 import { publicRoutes } from "../routes";
-import { useMessageStore, useWindowSize } from "../hooks";
+import { useAuthStore, useMessageStore, useWindowSize } from "../hooks";
 import { showMessage } from "../utilities";
 import { Toaster } from "sonner";
+import { authStatus } from "../store";
 
 const LoginPage = lazy(() => import("../auth/pages/LoginPage"));
 
@@ -33,13 +34,20 @@ const {
 
 export const AppRouter = () => {
   const { isMobile } = useWindowSize();
+  const { startRevalidateToken, status } = useAuthStore();
   const { messages, type, startClearMessages } = useMessageStore();
+
+  useEffect(() => {
+    startRevalidateToken();
+  }, []);
 
   useEffect(() => {
     if (!messages.length) return;
     showMessage(type, messages);
     startClearMessages();
   }, [messages]);
+
+  if (status === authStatus.CHECKING) return <h1>Cargando...</h1>;
 
   return (
     <BrowserRouter>
@@ -58,12 +66,16 @@ export const AppRouter = () => {
         <Route path={LOGIN} element={<LoginPage />} />
         <Route path={REGISTER} element={<RegisterPage />} />
 
-        <Route path={HOME} element={<HomePage />} />
-        <Route path={SHOP} element={<ShopPage />} />
-        <Route path={DETAILPRODUCT} element={<DetailProductPage />} />
-        <Route path={BLOG} element={<ShopPage />} />
-        <Route path={PERFIL} element={<LoginPage />} />
-        <Route path={CAR} element={<CartPage />} />
+        {status !== authStatus.CHECKING && (
+          <>
+            <Route path={HOME} element={<HomePage />} />
+            <Route path={SHOP} element={<ShopPage />} />
+            {/* <Route path={SERVICES} element={<ShopPage />} /> */}
+            <Route path={BLOG} element={<ShopPage />} />
+            <Route path={PERFIL} element={<LoginPage />} />
+            <Route path={CAR} element={<CartPage />} />
+          </>
+        )}
       </RouterWithNotFound>
     </BrowserRouter>
   );
