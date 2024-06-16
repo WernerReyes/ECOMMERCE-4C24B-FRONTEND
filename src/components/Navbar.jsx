@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { publicRoutes } from "../routes";
 import { CategoryService } from "../services/categoryService";
 
-const { HOME, SHOP, ABOUT, SERVICES, PERFIL, CAR } = publicRoutes;
+const { HOME, SHOP, ABOUT, PERFIL, CAR } = publicRoutes;
 
 function Navbar() {
   const location = useLocation();
@@ -11,7 +11,6 @@ function Navbar() {
   const categoryService = new CategoryService();
 
   useEffect(() => {
-    // Función para obtener las categorías desde la API
     const fetchCategories = async () => {
       try {
         const categories = await categoryService.getCategories();
@@ -21,7 +20,7 @@ function Navbar() {
       }
     };
 
-    fetchCategories(); // Llamada a la función para obtener las categorías al cargar el componente
+    fetchCategories();
   }, []);
 
   const isActive = (path) => {
@@ -32,7 +31,7 @@ function Navbar() {
     <nav className="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Furni navigation bar">
       <div className="container">
         <Link to={HOME} className="navbar-brand">
-          <img src="images/logo.png" alt="logo" className="imgLogo" />
+          <img src="/images/logo.png" alt="logo" className="imgLogo" />
           <span>.</span>
         </Link>
 
@@ -55,17 +54,19 @@ function Navbar() {
                 Inicio
               </Link>
             </li>
+
             <li className={`nav-item ${isActive(SHOP)}`}>
               <Link to={SHOP} className="nav-link">
                 Tienda
               </Link>
             </li>
+
             <li className="nav-item dropdown">
               <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                 Categorías
               </a>
               <ul className="dropdown-menu">
-                {categories.map(category => (
+                {categories.map((category) => (
                   <li key={category.category_id}>
                     <Link to={`/${category.name.toLowerCase()}`} className="dropdown-item text-dark">
                       {category.name}
@@ -74,27 +75,22 @@ function Navbar() {
                 ))}
               </ul>
             </li>
+
             <li className={`nav-item ${isActive(ABOUT)}`}>
               <Link to={ABOUT} className="nav-link">
                 Nosotros
               </Link>
             </li>
-            <li className={`nav-item ${isActive(SERVICES)}`}>
-              <Link to={SERVICES} className="nav-link">
-                Servicios
-              </Link>
-            </li>
-          </ul>
 
-          <ul className="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-            <li>
-              <Link to={PERFIL}>
-                <img src="images/user.svg" alt="Perfil" />
+            <li className={`nav-item ${isActive(PERFIL)}`}>
+              <Link to={PERFIL} className="nav-link">
+                Perfil
               </Link>
             </li>
-            <li>
-              <Link to={CAR}>
-                <img src="images/cart.svg" alt="Carrito" />
+
+            <li className={`nav-item ${isActive(CAR)}`}>
+              <Link to={CAR} className="nav-link">
+                Carrito
               </Link>
             </li>
           </ul>
@@ -105,3 +101,4 @@ function Navbar() {
 }
 
 export default Navbar;
+

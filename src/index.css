@@ -1,25 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 :root {
 
   --primary: #3b5d50;
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
-/* a {
-  font-weight: 500;
-  text-decoration: inherit;
+
+.tamañoItem{
+  width: 99%;
+  height: 200px;
+  border-radius: 10px;
 }
-a:hover {
-  color: #3b5d50;
-
-} */
-
-/* body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-} */
+.tamañoItemDetail {
+  width: 98%;
+  height: 400px;
+  border-radius: 10px;
+  margin: 0 auto;
+}
 
 /* Asegúrate de que el CSS se aplica correctamente */
 
@@ -124,7 +121,6 @@ button:focus-visible {
 */
 
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 
 .active-link {
   color: #f00;

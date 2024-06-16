@@ -18,7 +18,18 @@ const HomePage = lazy(() => import("../home/pages/HomePage"));
 
 const DetailProductPage = lazy(() => import("../detail-product/pages/DetailProductPage"));
 
-const { LOGIN, REGISTER, HOME, SHOP, SERVICES, BLOG, PERFIL, CAR } = publicRoutes;
+const AboutPage = lazy(() => import("../abautUs/AboutPage"));
+
+const {
+  LOGIN,
+  REGISTER,
+  HOME,
+  SHOP,
+  DETAILPRODUCT,
+  ABOUT,
+  PERFIL,
+  CAR,
+} = publicRoutes;
 
 
 export const AppRouter = () => {
@@ -47,10 +58,14 @@ export const AppRouter = () => {
         <Route path="/" element={<Navigate to={LOGIN} />} />
         <Route path={LOGIN} element={<LoginPage />} />
         <Route path={REGISTER} element={<RegisterPage />} />
+
         <Route path={HOME} element={<HomePage />} />
         <Route path={SHOP} element={<ShopPage />} />
-        <Route path={SERVICES} element={<DetailProductPage />} />
-        <Route path={BLOG} element={<ShopPage />} />
+        <Route
+          path={`${DETAILPRODUCT}/:productId`}
+          element={<DetailProductPage />}
+        />
+        <Route path={ABOUT} element={<AboutPage />} />
         <Route path={PERFIL} element={<LoginPage />} />
         <Route path={CAR} element={<CartPage />} />
       </RouterWithNotFound>
