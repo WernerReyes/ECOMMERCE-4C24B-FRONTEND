@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import { InputText } from "../../components";
@@ -8,9 +8,10 @@ import { publicRoutes } from "../../routes";
 import { loginValidation } from "../validations";
 import { useAuthStore } from "../../hooks";
 
-const { REGISTER } = publicRoutes;
+const { REGISTER, HOME } = publicRoutes;
 
 const LoginPage = () => {
+  const navigate = useNavigate();
   const { startLogin } = useAuthStore();
   const {
     control,
@@ -20,8 +21,12 @@ const LoginPage = () => {
     resolver: zodResolver(loginValidation),
   });
 
-  const handleLogin = async (data) => startLogin(data);
-
+  const handleLogin = async (data) => {
+    startLogin(data).then(() => {
+      console.log("Login success");
+      navigate(HOME);
+    });
+  };
 
   return (
     <AuthLayout>
@@ -62,7 +67,6 @@ const LoginPage = () => {
           )}
         />
 
-    
         <button
           style={{
             backgroundColor: "var(--primary)",

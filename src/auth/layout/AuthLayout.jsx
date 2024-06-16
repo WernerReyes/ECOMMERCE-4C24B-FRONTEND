@@ -8,12 +8,17 @@ export const AuthLayout = ({ children, large = "800px" }) => {
       style={{
         width: clsx(width >= lg ? large : "400px"),
       }}
-      className="d-flex justify-content-center align-items-center text-dark"
+      className="d-flex justify-content-center align-items-center text-dark root1"
     >
       <div className="d-flex flex-wrap container m-0 p-0 shadow rounded-3">
         <div className="col-12 col-lg-6 p-4">
           <div className="text-center">
-            <img src="/images/logo.png" width={100} className="img-fluid" alt="Logo" />
+            <img
+              src="/images/logo.png"
+              width={100}
+              className="img-fluid"
+              alt="Logo"
+            />
           </div>
           <div className="mt-4 d-flex flex-column align-items-center">
             <button className="btn btn-light w-100 max-w-xs d-flex align-items-center justify-content-center shadow-sm rounded py-3 mb-3">

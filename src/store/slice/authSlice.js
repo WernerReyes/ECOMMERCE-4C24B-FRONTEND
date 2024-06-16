@@ -14,6 +14,13 @@ export const userEmptyState = {
     email: "",
 };
 
+const authAdapter = (data) => ({
+    id: data.id,
+    name: data.first_name,
+    lastname: data.last_name,
+    email: data.email,
+});
+
 export const authSlice = createSlice({
     name: "auth",
     initialState: {
@@ -24,13 +31,16 @@ export const authSlice = createSlice({
         onCheking: (state) => {
             return {
                 ...state,
-                status: authStatus.CHECKING,
+                // status: authStatus.CHECKING,
                 authenticatedUser: userEmptyState
             };
         },
 
         onLogin: (state, { payload }) => {
-            return { ...state, authenticatedUser: payload, status: authStatus.AUTHENTICATE };
+            return {
+                ...state, authenticatedUser: authAdapter(payload),
+                status: authStatus.AUTHENTICATE
+            };
         },
 
         onLogout: (state) => {

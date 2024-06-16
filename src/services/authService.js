@@ -24,4 +24,13 @@ export class AuthService {
 
     }
 
+    async revalidateToken() {
+        try {
+            const response = await api.get(`${this.urlPrefix}/revalidate-token`);
+            return response.data;
+        } catch (error) {
+            throw error;
+        }
+    }
+
 }
