@@ -1,34 +1,16 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { publicRoutes } from '../../routes';
+import { useFurnitureStore } from '../../hooks';
 
 const {SHOP} = publicRoutes;
 
 function Producto_section(){
-  
-  const [products, setProducts] = useState([]);
+  const { startLoadingFurniture, furniture, isLoading } = useFurnitureStore();
 
   useEffect(() => {
-    
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get(
-          "http://127.0.0.1:8000/api/v1/furniture/"
-        );
-        const onlyThreeProducts = response.data.slice(0, 3);
-        setProducts(onlyThreeProducts);
-
-        console.log(products); 
-      } catch (error) {
-        console.error("Error al cargar los productos:", error);
-      }
-    };
-
-    fetchProducts(); 
+    startLoadingFurniture();
   }, []);
-
-  console.log(products);
 
   return (
     <div className="product-section">
@@ -50,8 +32,8 @@ function Producto_section(){
             </p>
           </div>
 
-          {products.map((product, index) => (
-            <div key={index} className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+          {!isLoading && furniture.map((product) => (
+            <div key={product.id} className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
               <Link className="product-item" to={SHOP}>
                 <img
                   src={product.image}
@@ -66,21 +48,6 @@ function Producto_section(){
               </Link>
             </div>
           ))}
-
-          {/* <div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-            <a className="product-item" href="cart.html">
-              <img
-                src="images/product-1.png"
-                className="img-fluid product-thumbnail"
-              ></img>
-              <h3 className="product-title">Nordic Chair</h3>
-              <strong className="product-price">s/800.00</strong>
-
-              <span className="icon-cross">
-                <img src="images/cross.svg" className="img-fluid"></img>
-              </span>
-            </a>
-          </div> */}
 
         </div>
       </div>
