@@ -1,34 +1,16 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { publicRoutes } from '../../routes';
+import { useFurnitureStore } from '../../hooks';
 
 const {SHOP} = publicRoutes;
 
 function Producto_section(){
-  
-  const [products, setProducts] = useState([]);
+  const { startLoadingFurniture, furniture, isLoading } = useFurnitureStore();
 
   useEffect(() => {
-    
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get(
-          "http://127.0.0.1:8000/api/v1/furniture/"
-        );
-        const onlyThreeProducts = response.data.slice(0, 3);
-        setProducts(onlyThreeProducts);
-
-        console.log(products); 
-      } catch (error) {
-        console.error("Error al cargar los productos:", error);
-      }
-    };
-
-    fetchProducts(); 
+    startLoadingFurniture();
   }, []);
-
-  console.log(products);
 
   return (
     <div className="product-section">
@@ -50,23 +32,26 @@ function Producto_section(){
             </p>
           </div>
 
-          {products.map((product, index) => (
-            <div key={index} className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-              <Link className="product-item" to={SHOP}>
-                <img
-                  src={product.image}
-                  className="img-fluid product-thumbnail imagesize"
-                ></img>
-                <h3 className="product-title">{product.name}</h3>
-                <strong className="product-price">s/{product.price}</strong>
+          {!isLoading &&
+            furniture.slice(0, 3).map((product) => (
+              <div
+                key={product.id}
+                className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0"
+              >
+                <Link className="product-item" to={SHOP}>
+                  <img
+                    src={product.image}
+                    className="img-fluid product-thumbnail imagesize"
+                  ></img>
+                  <h3 className="product-title">{product.name}</h3>
+                  <strong className="product-price">s/{product.price}</strong>
 
-                <span className="icon-cross">
-                  <img src="images/cross.svg" className="img-fluid"></img>
-                </span>
-              </Link>
-            </div>
-          ))}
-
+                  <span className="icon-cross">
+                    <img src="images/cross.svg" className="img-fluid"></img>
+                  </span>
+                </Link>
+              </div>
+            ))}
         </div>
       </div>
     </div>

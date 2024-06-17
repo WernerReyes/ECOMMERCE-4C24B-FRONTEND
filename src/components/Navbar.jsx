@@ -1,13 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { publicRoutes } from "../routes";
-import { useAuthStore, useCart } from "../hooks";
+import { useAuthStore, useCartStore } from "../hooks";
 import { Avatar } from "./Avatar";
 
-const { HOME, SHOP, ABOUT, PERFIL, CAR } = publicRoutes;
+const { HOME, SHOP, ABOUT, CAR } = publicRoutes;
 
 function Navbar() {
-  const { totalQuantity } = useCart();
+  const { totalQuantity } = useCartStore();
   const { authenticatedUser } = useAuthStore();
   const location = useLocation();
   const isActive = (path) => {
@@ -78,6 +78,8 @@ function Navbar() {
               </ul>
             </li>
 
+
+
             <li
               style={{
                 width: "40px",
@@ -90,6 +92,7 @@ function Navbar() {
                 <span
                   className="badge"
                   style={{
+
                     position: "absolute",
                     top: "0",
                     right: "0",
@@ -102,7 +105,7 @@ function Navbar() {
                     justifyContent: "center",
                     alignItems: "center",
                     fontSize: "12px",
-                    zIndex: "1",
+                    zIndex: "1", 
                   }}
                 >
                   {totalQuantity}

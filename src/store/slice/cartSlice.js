@@ -6,15 +6,21 @@ const cartAdapter = (data) => ({
     name: data.name,
     price: data.price,
     image: data.image,
-    quantity: 0,
+    stock: data.stock,
+    quantity: 1,
 });
+
+const totalQuantity = (cart) => cart.reduce((acc, item) => acc + item.quantity, 0);
+
+const totalAmount = (cart) => cart.reduce((acc, item) => acc + item.quantity * Number(item.price), 0);
 
 export const cartSlice = createSlice({
     name: "cart",
     initialState: {
         isLoading: false,
         cart: getStorage("cart") || [],
-        totalQuantity: getStorage("cart")?.length || 0,
+        totalQuantity: totalQuantity(getStorage("cart") || []),
+        totalAmount: totalAmount(getStorage("cart") || []),
     },
     reducers: {
 
@@ -25,7 +31,8 @@ export const cartSlice = createSlice({
                 setStorage("cart", cart);
                 return {
                     ...state,
-                    totalQuantity: cart.length,
+                    totalQuantity: totalQuantity(cart),
+                    totalAmount: totalAmount(cart),
                     cart,
                 };
 
@@ -42,7 +49,8 @@ export const cartSlice = createSlice({
                 setStorage("cart", cart);
                 return {
                     ...state,
-                    totalQuantity: cart.length,
+                    totalQuantity: totalQuantity(cart),
+                    totalAmount: totalAmount(cart),
                     cart,
                 };
             }
@@ -54,7 +62,6 @@ export const cartSlice = createSlice({
             const cart = state.cart.map((item) => {
                 if (item.id === payload.id) {
                     if (item.quantity > 0) {
-                        console.log(item.quantity);
                         return {
                             ...item,
                             quantity: item.quantity - 1,
@@ -62,15 +69,25 @@ export const cartSlice = createSlice({
                     }
                 }
                 return item;
-            
-            });
 
-            console.log(cart);
+            }).filter((item) => item.quantity > 0);
 
             setStorage("cart", cart);
             return {
                 ...state,
-                totalQuantity: cart.length,
+                totalQuantity: totalQuantity(cart),
+                totalAmount: totalAmount(cart),
+                cart,
+            };
+        },
+
+        onDeleteFromCart: (state, { payload }) => {
+            const cart = state.cart.filter((item) => item.id !== payload);
+            setStorage("cart", cart);
+            return {
+                ...state,
+                totalQuantity: totalQuantity(cart),
+                totalAmount: totalAmount(cart),
                 cart,
             };
         },
@@ -82,6 +99,8 @@ export const cartSlice = createSlice({
             };
         },
 
+
+
     }
 
 });
@@ -90,5 +109,6 @@ export const cartSlice = createSlice({
 export const {
     onAddToCart,
     onRemoveFromCart,
+    onDeleteFromCart,
     onLoadingCart,
 } = cartSlice.actions;
