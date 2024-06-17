@@ -5,6 +5,9 @@ import { AddAndRemoveFromCart } from "../../components";
 
 const ProductDetails = () => {
   const { productId } = useParams();
+
+  const [product, setProduct] = useState("");
+
   const { startLoadingFurnitureDetail, furnitureDetail, isLoading } =
     useFurnitureStore();
   

@@ -6,7 +6,9 @@ const CartTotals = ({ subtotal, total }) => {
       <div className="col-md-7">
         <div className="row">
           <div className="col-md-12 text-right border-bottom mb-5">
-            <h3 className="text-black h4 text-uppercase">Cart Totals</h3>
+            <h3 className="text-black h4 text-uppercase">
+              Totales del carrito
+            </h3>
           </div>
         </div>
         <div className="row mb-3">
@@ -31,7 +33,7 @@ const CartTotals = ({ subtotal, total }) => {
               className="btn btn-black btn-lg py-3 btn-block"
               onClick={() => (window.location.href = "checkout.html")}
             >
-              Proceed To Checkout
+              Proceder compra
             </button>
           </div>
         </div>

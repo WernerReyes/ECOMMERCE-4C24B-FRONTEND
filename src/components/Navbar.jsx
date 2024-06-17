@@ -20,8 +20,10 @@ function Navbar() {
       arial-label="Furni navigation bar"
     >
       <div className="container">
+
         <Link to={HOME} className="navbar-brand bg-body p-3 rounded-circle">
           <img src="/images/logo.png" alt="logo" className="imgLogo" />
+
           <span>.</span>
         </Link>
 
@@ -44,11 +46,6 @@ function Navbar() {
                 Inicio
               </Link>
             </li>
-            {/* <li class="active"><a class="nav-link" href="shop.html">Shop</a></li>
-              <li><a class="nav-link" href="about.html">About us</a></li>
-              <li><a class="nav-link" href="services.html">Services</a></li>
-              <li><a class="nav-link" href="blog.html">Blog</a></li>
-              <li><a class="nav-link" href="contact.html">Contact us</a></li> */}
             <li className={`nav-item ${isActive(SHOP)}`}>
               <Link to={SHOP} className="nav-link">
                 Tienda

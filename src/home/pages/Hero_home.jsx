@@ -1,4 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { publicRoutes } from "../../routes/publicRoute";
+const {SHOP} = publicRoutes;
 
 function Hero_home() {
   return (
@@ -8,16 +11,17 @@ function Hero_home() {
           <div className="col-lg-5">
             <div className="intro-excerpt">
               <h1>
-                Modern Interior <span clsas="d-block">Design Studio</span>
+                Estudio de Diseño de
+                <span clsas="d-block"> Interiores Moderno</span>
               </h1>
               <p className="mb-4">
-                Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet
-                velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
+                Estudio de Diseño de Interiores Moderno: creando espacios
+                elegantes y funcionales con un toque contemporáneo.
               </p>
               <p>
-                <a href="" className="btn btn-secondary me-2">
-                  Shop Now
-                </a>
+                <Link to={SHOP} className="btn btn-secondary me-2">
+                  Compra ahora
+                </Link>
               </p>
             </div>
           </div>
