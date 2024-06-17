@@ -1,18 +1,17 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { publicRoutes } from "../routes";
 import { useAuthStore, useCartStore } from "../hooks";
 import { Avatar } from "./Avatar";
 
-const { HOME, SHOP, ABOUT, CAR } = publicRoutes;
+const { HOME, SHOP, ABOUT, CAR, LOGIN } = publicRoutes;
 
 function Navbar() {
+  const navigate = useNavigate();
   const { totalQuantity } = useCartStore();
   const { authenticatedUser } = useAuthStore();
   const location = useLocation();
-  const isActive = (path) => {
-    return path === location.pathname ? "active" : "";
-  };
+  const isActive = (path) => (path === location.pathname ? "active" : "");
 
   return (
     <nav
@@ -58,7 +57,7 @@ function Navbar() {
           </ul>
 
           <ul className="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-            <li className="nav-item dropdown">
+            <li>
               {authenticatedUser.name ? (
                 <Avatar user={authenticatedUser} />
               ) : (
@@ -66,16 +65,9 @@ function Navbar() {
                   src="/images/user.svg"
                   className="nav-link dropdown-toggle "
                   style={{ cursor: "pointer" }}
-                  data-bs-toggle="dropdown"
+                  onClick={() => navigate(LOGIN)}
                 />
               )}
-              <ul
-                className="dropdown-menu"
-                style={{ width: "200px", position: "absolute" }}
-              >
-                <li className="mx-3 cursor-pointer">Historial compras</li>
-                <li className="mx-3 cursor-pointer">Cerrar Sesión</li>
-              </ul>
             </li>
 
             <li
@@ -90,7 +82,6 @@ function Navbar() {
                 <span
                   className="badge"
                   style={{
-
                     position: "absolute",
                     top: "0",
                     right: "0",
@@ -103,7 +94,7 @@ function Navbar() {
                     justifyContent: "center",
                     alignItems: "center",
                     fontSize: "12px",
-                    zIndex: "1", 
+                    zIndex: "1",
                   }}
                 >
                   {totalQuantity}
