@@ -67,21 +67,6 @@ function Producto_section(){
             </div>
           ))}
 
-          {/* <div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-            <a className="product-item" href="cart.html">
-              <img
-                src="images/product-1.png"
-                className="img-fluid product-thumbnail"
-              ></img>
-              <h3 className="product-title">Nordic Chair</h3>
-              <strong className="product-price">s/800.00</strong>
-
-              <span className="icon-cross">
-                <img src="images/cross.svg" className="img-fluid"></img>
-              </span>
-            </a>
-          </div> */}
-
         </div>
       </div>
     </div>

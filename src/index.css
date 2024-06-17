@@ -22,8 +22,9 @@
   height: 200px;
   border-radius: 10px;
 }
-
-
+.cursor-pointer {
+  cursor: pointer;
+}
 
 button {
   border-radius: 8px;

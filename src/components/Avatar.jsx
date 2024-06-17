@@ -5,13 +5,13 @@ export const Avatar = ({ user }) => {
       style={{
         width: "40px",
         height: "40px",
-        backgroundColor: "#f8f9fa", // Equivalente a bg-gray-100
+        backgroundColor: "#f8f9fa", 
         overflow: "hidden",
       }}
     >
       <span
         className="font-weight-bold"
-        style={{ color: "#6c757d" }} // Equivalente a text-gray-600
+        style={{ color: "#6c757d" }} 
       >
         {firstLetter(user.name)}{firstLetter(user.lastname)}
       </span>
