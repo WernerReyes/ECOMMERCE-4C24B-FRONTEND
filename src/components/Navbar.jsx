@@ -78,8 +78,6 @@ function Navbar() {
               </ul>
             </li>
 
-
-
             <li
               style={{
                 width: "40px",
