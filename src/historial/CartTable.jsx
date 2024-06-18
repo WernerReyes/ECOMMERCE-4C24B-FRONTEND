@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import CartItem from "./CartItem";
-import Axios from "axios"; // Corregido aquí
+
+import { apiPrivate } from "../config";
 
 const CartTable = () => {
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://127.0.0.1:8000/api/v1/user-orders")
+    apiPrivate.get("http://127.0.0.1:8000/api/v1/user-orders")
       .then((response) => {
         // Asumiendo que la respuesta es un array de productos
         setCartItems(response.data);
-        console.log(response.data);
       })
       .catch((error) =>
         console.error("Error al cargar los datos del carrito:", error)
@@ -26,29 +26,32 @@ const CartTable = () => {
           <table className="table">
             <thead>
               <tr>
-                <th className="product-thumbnail">Image</th>
-                <th className="product-name">Product</th>
-                <th className="product-price">Price</th>
-                <th className="product-quantity">Quantity</th>
-                <th className="product-total">Total</th>
-                <th className="product-remove">Remove</th>
+                <th className="product-thumbnail">Imagen</th>
+                <th className="product-name">Nombre</th>
+                <th className="product-price">Producto</th>
+                <th className="product-quantity">Cantidad</th>
+                <th className="product-total">Precio / Unidad</th>
+                <th className="product-remove">Total</th>
               </tr>
             </thead>
             <tbody>
-              <CartItem
-                imageSrc="images/product-1.png"
-                productName="Product 1"
-                price="$49.00"
-                quantity="1"
-                total="$49.00"
-              />
-              <CartItem
-                imageSrc="images/product-2.png"
-                productName="Product 2"
-                price="$49.00"
-                quantity="1"
-                total="$49.00"
-              />
+              {cartItems.length > 0 ? (
+                cartItems.map((item, index) => (
+                  <CartItem
+                    key={index}
+                    imageSrc={item.product_image}
+                    userName={item.first_name}
+                    productName={item.product_name}
+                    quantity={item.quantity}
+                    priceUnidad={item.product_price}
+                    priceTotal={item.total_price}
+                  />
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="6">Aún no has realizado ninguna compra.</td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>
