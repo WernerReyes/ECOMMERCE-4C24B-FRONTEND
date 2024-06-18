@@ -21,6 +21,8 @@ const DetailProductPage = lazy(() => import("../detail-product/pages/DetailProdu
 
 const AboutPage = lazy(() => import("../abautUs/AboutPage"));
 
+const HistoryPage = lazy(() => import("../historial/HistoryPage"));
+
 const {
   LOGIN,
   REGISTER,
@@ -30,6 +32,7 @@ const {
   ABOUT,
   PERFIL,
   CAR,
+  HISTORY
 } = publicRoutes;
 
 
@@ -76,6 +79,8 @@ export const AppRouter = () => {
         <Route path={ABOUT} element={<AboutPage />} />
         <Route path={PERFIL} element={<LoginPage />} />
         <Route path={CAR} element={<CartPage />} />
+
+        <Route path={HISTORY} element={<HistoryPage />} />
       </RouterWithNotFound>
     </BrowserRouter>
   );

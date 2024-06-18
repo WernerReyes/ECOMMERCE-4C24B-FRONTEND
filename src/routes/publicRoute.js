@@ -9,5 +9,6 @@ export const publicRoutes = {
   CONTACT: "/contact",
   PERFIL: "/perfil",
   CAR: "/car",
+  HISTORY: "/history",
 };
   
