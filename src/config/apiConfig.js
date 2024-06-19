@@ -21,3 +21,4 @@ export const apiPublic = axios.create({
 
 setupInterceptors(apiPrivate);
 
+export const api = apiPublic;  

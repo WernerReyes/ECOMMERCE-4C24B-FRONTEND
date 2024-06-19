@@ -3,11 +3,16 @@ export const publicRoutes = {
   REGISTER: "/register",
   HOME: "/home",
   SHOP: "/shop",
+  CATEGORY: "/category",
   ABOUT: "/about-us",
   DETAILPRODUCT: "/detail-product",
   BLOG: "/blog",
   CONTACT: "/contact",
   PERFIL: "/perfil",
-  CAR: "/car",
+
+  HISTORY: "/history",
+  CAR: "/cart",
+  CHECKOUT: "/checkout",
+
 };
   
