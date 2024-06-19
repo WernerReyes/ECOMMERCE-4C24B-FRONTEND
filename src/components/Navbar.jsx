@@ -1,27 +1,17 @@
-<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-=======
-import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
->>>>>>> origin/feature/shop-system
 import { publicRoutes } from "../routes";
 import { useAuthStore, useCartStore } from "../hooks";
 import { Avatar } from "./Avatar";
 import { CategoryService } from "../services/categoryService";
 
-<<<<<<< HEAD
-const { HOME, SHOP, ABOUT, PERFIL, CAR, CATEGORY } = publicRoutes;
-=======
-const { HOME, SHOP, ABOUT, CAR, LOGIN } = publicRoutes;
->>>>>>> origin/feature/shop-system
+const { HOME, SHOP, ABOUT, LOGIN, CAR, CATEGORY } = publicRoutes;
 
 function Navbar({ currentTotalQuantity }) {
   const navigate = useNavigate();
   const { totalQuantity } = useCartStore();
   const { authenticatedUser } = useAuthStore();
   const location = useLocation();
-<<<<<<< HEAD
   const [categories, setCategories] = useState([]);
   const categoryService = new CategoryService();
 
@@ -38,12 +28,7 @@ function Navbar({ currentTotalQuantity }) {
     fetchCategories();
   }, []);
 
-  const isActive = (path) => {
-    return path === location.pathname ? "active" : "";
-  };
-=======
   const isActive = (path) => (path === location.pathname ? "active" : "");
->>>>>>> origin/feature/shop-system
 
   return (
     <nav className="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Furni navigation bar">
@@ -113,12 +98,6 @@ function Navbar({ currentTotalQuantity }) {
                 />
               )}
             </li>
-<<<<<<< HEAD
-            <li>
-              <Link to={CAR}>
-                <span className="badge">{totalQuantity}</span>
-                <img src="/images/cart.svg" />
-=======
 
             <li
               style={{
@@ -153,7 +132,6 @@ function Navbar({ currentTotalQuantity }) {
                   src="/images/cart.svg"
                   style={{ position: "absolute", bottom: "10px", left: "10px" }}
                 />
->>>>>>> origin/feature/shop-system
               </Link>
             </li>
           </ul>
