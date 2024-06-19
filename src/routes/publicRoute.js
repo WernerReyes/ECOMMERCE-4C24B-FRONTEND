@@ -8,6 +8,7 @@ export const publicRoutes = {
   BLOG: "/blog",
   CONTACT: "/contact",
   PERFIL: "/perfil",
-  CAR: "/car",
+  CAR: "/cart",
+  CHECKOUT: "/checkout",
 };
   
