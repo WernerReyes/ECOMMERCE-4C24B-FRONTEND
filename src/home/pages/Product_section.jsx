@@ -9,7 +9,25 @@ function Producto_section(){
   const { startLoadingFurniture, furniture, isLoading } = useFurnitureStore();
 
   useEffect(() => {
+
     startLoadingFurniture();
+
+    
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get(
+          "http://127.0.0.1:8000/api/v1/furniture/"
+        );
+        const onlyThreeProducts = response.data.slice(0, 3);
+        setProducts(onlyThreeProducts);
+
+   
+      } catch (error) {
+        console.error("Error al cargar los productos:", error);
+      }
+    };
+
+    fetchProducts(); 
   }, []);
 
   return (
