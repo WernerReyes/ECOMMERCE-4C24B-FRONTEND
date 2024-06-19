@@ -9,7 +9,6 @@ const CartTable = () => {
   useEffect(() => {
     apiPrivate.get("http://127.0.0.1:8000/api/v1/user-orders")
       .then((response) => {
-        // Asumiendo que la respuesta es un array de productos
         setCartItems(response.data);
       })
       .catch((error) =>
@@ -36,7 +35,7 @@ const CartTable = () => {
             </thead>
             <tbody>
               {cartItems.length > 0 ? (
-                cartItems.map((item, index) => (
+                cartItems.slice(0, 4).map((item, index) => (
                   <CartItem
                     key={index}
                     imageSrc={item.product_image}
