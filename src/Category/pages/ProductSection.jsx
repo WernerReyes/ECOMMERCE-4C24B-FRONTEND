@@ -12,7 +12,7 @@ function ProductSection({ products }) {
                         <div key={index} className="col-12 col-md-4 col-lg-3 mb-5">
                             <Link
                                 className="product-item"
-                                to={`${DETAILPRODUCT}/${product.id}`}
+                                to={`${DETAILPRODUCT}/${product.furniture_id}`}
                             >
                                 <img
                                     src={product.image}
@@ -20,7 +20,7 @@ function ProductSection({ products }) {
                                     alt={product.name}
                                 />
                                 <h3 className="product-title">{product.name}</h3>
-                                <strong className="product-price">s/ {product.price}</strong>
+                                <strong className="product-price">$./ {product.price}</strong>
                                 <span className="icon-cross">
                                     <img
                                         src="/images/cross.svg"

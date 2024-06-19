@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import CategoryService from "../../services/categoryService";
+import { CategoryService } from "../../services/categoryService";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import Hero from "./Hero";
@@ -27,19 +27,21 @@ const CategoryPage = () => {
     }, []);
 
     useEffect(() => {
-        const fetchProductsByCategory = async () => {
-            try {
-                const products = await categoryService.getProductsByCategory(categoryId);
-                setProducts(products);
-            } catch (error) {
-                console.error(`Error fetching products for category ${categoryId}:`, error);
-            }
-        };
-
-        if (categoryId) {
-            fetchProductsByCategory();
+    const fetchProductsByCategory = async () => {
+        try {
+            const products = await categoryService.getProductsByCategory(categoryId);
+            setProducts(products);
+        } catch (error) {
+            console.error(`Error fetching products for category ${categoryId}:`, error);
+            setProducts([]); // Opcional: Limpia la lista de productos en caso de error
         }
-    }, [categoryId]);
+    };
+
+    if (categoryId) {
+        fetchProductsByCategory();
+    }
+}, [categoryId]);
+
 
     // Encuentra la categoría seleccionada
     const selectedCategory = categories.find(cat => cat.category_id.toString() === categoryId);
@@ -55,4 +57,3 @@ const CategoryPage = () => {
 };
 
 export default CategoryPage;
-
