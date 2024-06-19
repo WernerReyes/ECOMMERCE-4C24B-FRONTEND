@@ -17,11 +17,16 @@ const CartPage = lazy(() => import("../cart/pages/CartPage"));
 
 const HomePage = lazy(() => import("../home/pages/HomePage"));
 
+const CheckoutPage = lazy(() => import("../checkout/pages/CheckoutPage"));
+
 const DetailProductPage = lazy(() => import("../detail-product/pages/DetailProductPage"));
 
 const AboutPage = lazy(() => import("../abautUs/AboutPage"));
 
 const HistoryPage = lazy(() => import("../historial/HistoryPage"));
+
+
+
 
 const {
   LOGIN,
@@ -32,7 +37,9 @@ const {
   ABOUT,
   PERFIL,
   CAR,
-  HISTORY
+  HISTORY,
+  CHECKOUT,
+
 } = publicRoutes;
 
 
@@ -80,7 +87,10 @@ export const AppRouter = () => {
         <Route path={PERFIL} element={<LoginPage />} />
         <Route path={CAR} element={<CartPage />} />
 
+
         <Route path={HISTORY} element={<HistoryPage />} />
+        <Route path={CHECKOUT} element={<CheckoutPage />} />
+
       </RouterWithNotFound>
     </BrowserRouter>
   );

@@ -1,4 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { publicRoutes } from "../../routes";
+
+const { CHECKOUT } = publicRoutes;
 
 const CartTotals = ({ subtotal, total }) => {
   return (
@@ -29,12 +33,12 @@ const CartTotals = ({ subtotal, total }) => {
         </div>
         <div className="row">
           <div className="col-md-12">
-            <button
+            <Link
+              to={CHECKOUT}
               className="btn btn-black btn-lg py-3 btn-block"
-              onClick={() => (window.location.href = "checkout.html")}
             >
               Proceder compra
-            </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -6,7 +6,7 @@ import { Avatar } from "./Avatar";
 
 const { HOME, SHOP, ABOUT, CAR, LOGIN } = publicRoutes;
 
-function Navbar() {
+function Navbar({ currentTotalQuantity }) {
   const navigate = useNavigate();
   const { totalQuantity } = useCartStore();
   const { authenticatedUser } = useAuthStore();
@@ -97,7 +97,7 @@ function Navbar() {
                     zIndex: "1",
                   }}
                 >
-                  {totalQuantity}
+                  {currentTotalQuantity ?? totalQuantity}
                 </span>
                 <img
                   src="/images/cart.svg"
