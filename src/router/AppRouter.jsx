@@ -67,7 +67,7 @@ export const AppRouter = () => {
         closeButton
       />
       <RouterWithNotFound>
-        <Route path="/" element={<Navigate to={LOGIN} />} />
+        <Route path="/" element={<Navigate to={HOME} />} />
         <Route path={LOGIN} element={<LoginPage />} />
         <Route path={REGISTER} element={<RegisterPage />} />
         <Route path={HOME} element={<HomePage />} />
