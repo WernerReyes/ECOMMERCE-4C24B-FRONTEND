@@ -1,9 +1,12 @@
 import React from "react";
+import { useCartStore, useWindowSize } from "../../hooks";
 import CartItem from "./CartItem";
 import CartTotals from "./CartTotals";
-import CouponForm from "./CouponForm";
+import clsx from "clsx";
 
 const Cart = () => {
+  const { width, md } = useWindowSize();
+  const { cart, isLoading, totalAmount } = useCartStore();
   return (
     <div className="untree_co-section before-footer-section">
       <div className="container">
@@ -22,44 +25,28 @@ const Cart = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <CartItem
-                    image="images/product-1.png"
-                    name="Product 1"
-                    price="49.00"
-                    quantity="1"
-                    total="49.00"
-                  />
-                  <CartItem
-                    image="images/product-2.png"
-                    name="Product 2"
-                    price="49.00"
-                    quantity="1"
-                    total="49.00"
-                  />
+                  {!isLoading && cart.length ? (
+                    cart.map((item) => (
+                      <CartItem
+                        {...item}
+                        key={item.id}
+                        total={item.quantity * Number(item.price)}
+                      />
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan="6">Cart is empty</td>
+                    </tr>
+                  )}
                 </tbody>
               </table>
             </div>
           </form>
         </div>
 
-        <div className="row">
-          <div className="col-md-6">
-            <div className="row mb-5">
-              <div className="col-md-6 mb-3 mb-md-0">
-                <button className="btn btn-black btn-sm btn-block">
-                  Actualizar carrito
-                </button>
-              </div>
-              <div className="col-md-6">
-                <button className="btn btn-outline-black btn-sm btn-block">
-                  Continuar compra
-                </button>
-              </div>
-            </div>
-            <CouponForm />
-          </div>
-          <div className="col-md-6 pl-5">
-            <CartTotals subtotal="230.00" total="230.00" />
+        <div className="d-flex justify-content-end">
+          <div className={clsx( width <= md ? "w-100" : "w-50" )}>
+            <CartTotals subtotal={totalAmount} total={totalAmount} />
           </div>
         </div>
       </div>

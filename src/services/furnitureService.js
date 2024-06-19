@@ -19,4 +19,13 @@ export class FurnitureService {
             throw error;
         }
     }
+
+    async getFurnitureByCategory(categoryId) {
+        try {
+            return await apiPublic.get(`${this.urlPrefix}/category/${categoryId}/`);
+        } catch (error) {
+            throw error;
+        }
+    }
+
 }

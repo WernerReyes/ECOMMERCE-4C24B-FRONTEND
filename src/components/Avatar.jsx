@@ -1,20 +1,38 @@
+import { useState } from "react";
+import { useAuthStore } from "../hooks";
+import { Link } from "react-router-dom";
+import { publicRoutes } from "../routes";
+
+const { HISTORY } = publicRoutes;
+
 export const Avatar = ({ user }) => {
+  const { startLogout } = useAuthStore();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDropdown = () => setIsOpen(!isOpen);
+
+  const firstLetter = (name) => {
+    return name.charAt(0).toUpperCase();
+  };
+
   return (
-    <div
-      className="d-inline-flex align-items-center justify-content-center rounded-circle"
-      style={{
-        width: "40px",
-        height: "40px",
-        backgroundColor: "#f8f9fa", // Equivalente a bg-gray-100
-        overflow: "hidden",
-      }}
-    >
-      <span
-        className="font-weight-bold"
-        style={{ color: "#6c757d" }} // Equivalente a text-gray-600
-      >
-        {firstLetter(user.name)}{firstLetter(user.lastname)}
-      </span>
+    <div className="dropdown-user">
+      <div onClick={toggleDropdown} className="avatar">
+        <span className="font-weight-bold">
+          {firstLetter(user.name)}
+          {firstLetter(user.lastname)}
+        </span>
+      </div>
+      {isOpen && (
+        <ul className="dropdown-menu-user">
+          <li className="dropdown-item-user">
+            <Link className="text-decoration-none" to={HISTORY}>Historial compras</Link>
+          </li>
+          <li onClick={startLogout} className="dropdown-item-user">
+            Cerrar Sesión
+          </li>
+        </ul>
+      )}
     </div>
   );
 };

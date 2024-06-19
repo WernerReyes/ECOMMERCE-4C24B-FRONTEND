@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { onCheking, onLogin, onLogout, typeMessage } from "../../store";
 import { AuthService } from "../../services";
-import { getStorage, setStorage } from "../../utilities";
+import { getStorage, removeStorage, setStorage } from "../../utilities";
 import { useMessageStore } from "./useMessageStore";
 
 const authService = new AuthService();
@@ -53,6 +53,11 @@ export const useAuthStore = () => {
             });
     };
 
+    const startLogout = () => {
+        dispatch(onLogout());
+        removeStorage("token");
+    }
+
     return {
         //* Atributes
         status,
@@ -63,5 +68,6 @@ export const useAuthStore = () => {
         startRegister,
         startRevalidateToken,
         startLogin,
+        startLogout,
     };
 };

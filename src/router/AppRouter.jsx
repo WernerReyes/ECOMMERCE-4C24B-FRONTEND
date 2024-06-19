@@ -13,9 +13,16 @@ const RegisterPage = lazy(() => import("../auth/pages/RegisterPage"));
 const ShopPage = lazy(() => import("../shop/pages/ShopPage"));
 const CartPage = lazy(() => import("../cart/pages/CartPage"));
 const HomePage = lazy(() => import("../home/pages/HomePage"));
+
+const CheckoutPage = lazy(() => import("../checkout/pages/CheckoutPage"));
+
 const DetailProductPage = lazy(() => import("../detail-product/pages/DetailProductPage"));
 const AboutPage = lazy(() => import("../abautUs/AboutPage"));
-const CategoryPage = lazy(() => import("../category/pages/CategoryPage")); // Importa CategoryPage aquí
+
+const HistoryPage = lazy(() => import("../historial/HistoryPage"));
+
+
+
 
 const {
   LOGIN,
@@ -26,7 +33,9 @@ const {
   ABOUT,
   PERFIL,
   CAR,
-  CATEGORY,
+  HISTORY,
+  CHECKOUT,
+
 } = publicRoutes;
 
 export const AppRouter = () => {
@@ -68,9 +77,11 @@ export const AppRouter = () => {
         <Route path={ABOUT} element={<AboutPage />} />
         <Route path={PERFIL} element={<LoginPage />} />
         <Route path={CAR} element={<CartPage />} />
-        
-        {/* Ruta dinámica para las categorías */}
-        <Route path={`${CATEGORY}/:categoryId`} element={<CategoryPage />} />
+
+
+        <Route path={HISTORY} element={<HistoryPage />} />
+        <Route path={CHECKOUT} element={<CheckoutPage />} />
+
       </RouterWithNotFound>
     </BrowserRouter>
   );

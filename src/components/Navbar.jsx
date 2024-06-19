@@ -1,16 +1,27 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+=======
+import React from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+>>>>>>> origin/feature/shop-system
 import { publicRoutes } from "../routes";
-import { useAuthStore, useCart } from "../hooks";
+import { useAuthStore, useCartStore } from "../hooks";
 import { Avatar } from "./Avatar";
 import { CategoryService } from "../services/categoryService";
 
+<<<<<<< HEAD
 const { HOME, SHOP, ABOUT, PERFIL, CAR, CATEGORY } = publicRoutes;
+=======
+const { HOME, SHOP, ABOUT, CAR, LOGIN } = publicRoutes;
+>>>>>>> origin/feature/shop-system
 
-function Navbar() {
-  const { totalQuantity } = useCart();
+function Navbar({ currentTotalQuantity }) {
+  const navigate = useNavigate();
+  const { totalQuantity } = useCartStore();
   const { authenticatedUser } = useAuthStore();
   const location = useLocation();
+<<<<<<< HEAD
   const [categories, setCategories] = useState([]);
   const categoryService = new CategoryService();
 
@@ -30,6 +41,9 @@ function Navbar() {
   const isActive = (path) => {
     return path === location.pathname ? "active" : "";
   };
+=======
+  const isActive = (path) => (path === location.pathname ? "active" : "");
+>>>>>>> origin/feature/shop-system
 
   return (
     <nav className="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Furni navigation bar">
@@ -91,13 +105,55 @@ function Navbar() {
               {authenticatedUser.name ? (
                 <Avatar user={authenticatedUser} />
               ) : (
-                <img src="/images/user.svg" />
+                <img
+                  src="/images/user.svg"
+                  className="nav-link dropdown-toggle "
+                  style={{ cursor: "pointer" }}
+                  onClick={() => navigate(LOGIN)}
+                />
               )}
             </li>
+<<<<<<< HEAD
             <li>
               <Link to={CAR}>
                 <span className="badge">{totalQuantity}</span>
                 <img src="/images/cart.svg" />
+=======
+
+            <li
+              style={{
+                width: "40px",
+                height: "40px",
+                overflow: "hidden",
+                position: "relative",
+              }}
+            >
+              <Link to={CAR}>
+                <span
+                  className="badge"
+                  style={{
+                    position: "absolute",
+                    top: "0",
+                    right: "0",
+                    backgroundColor: "red",
+                    color: "white",
+                    borderRadius: "50%",
+                    width: "20px",
+                    height: "20px",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    fontSize: "12px",
+                    zIndex: "1",
+                  }}
+                >
+                  {currentTotalQuantity ?? totalQuantity}
+                </span>
+                <img
+                  src="/images/cart.svg"
+                  style={{ position: "absolute", bottom: "10px", left: "10px" }}
+                />
+>>>>>>> origin/feature/shop-system
               </Link>
             </li>
           </ul>
