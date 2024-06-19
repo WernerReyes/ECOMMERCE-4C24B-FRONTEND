@@ -1,5 +1,9 @@
 import { useState } from "react";
 import { useAuthStore } from "../hooks";
+import { Link } from "react-router-dom";
+import { publicRoutes } from "../routes";
+
+const { HISTORY } = publicRoutes;
 
 export const Avatar = ({ user }) => {
   const { startLogout } = useAuthStore();
@@ -21,11 +25,10 @@ export const Avatar = ({ user }) => {
       </div>
       {isOpen && (
         <ul className="dropdown-menu-user">
-          <li className="dropdown-item-user">Historial compras</li>
-          <li
-            onClick={startLogout}
-            className="dropdown-item-user"
-          >
+          <li className="dropdown-item-user">
+            <Link className="text-decoration-none" to={HISTORY}>Historial compras</Link>
+          </li>
+          <li onClick={startLogout} className="dropdown-item-user">
             Cerrar Sesión
           </li>
         </ul>

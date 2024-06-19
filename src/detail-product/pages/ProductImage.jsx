@@ -17,7 +17,7 @@ const ProductImage = () => {
 
   useEffect(() => {
     const mostSend = furniture
-      .slice(0, 3)
+      .slice(0, 4)
       .filter((item) => item.id !== furnitureDetail.id);
     setMostSend(mostSend);
   }, [furniture, furnitureDetail]);

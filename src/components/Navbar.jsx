@@ -1,27 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { publicRoutes } from "../routes";
 import { useAuthStore, useCartStore } from "../hooks";
 import { Avatar } from "./Avatar";
+import { CategoryService } from "../services/categoryService";
 
-const { HOME, SHOP, ABOUT, CAR, LOGIN } = publicRoutes;
+const { HOME, SHOP, ABOUT, LOGIN, CAR, CATEGORY } = publicRoutes;
 
 function Navbar({ currentTotalQuantity }) {
   const navigate = useNavigate();
   const { totalQuantity } = useCartStore();
   const { authenticatedUser } = useAuthStore();
   const location = useLocation();
+  const [categories, setCategories] = useState([]);
+  const categoryService = new CategoryService();
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const categories = await categoryService.getCategories();
+        setCategories(categories);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
   const isActive = (path) => (path === location.pathname ? "active" : "");
 
   return (
-    <nav
-      className="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark"
-      arial-label="Furni navigation bar"
-    >
+    <nav className="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Furni navigation bar">
       <div className="container">
         <Link to={HOME} className="navbar-brand bg-body p-3 rounded-circle">
           <img src="/images/logo.png" alt="logo" className="imgLogo" />
-
           <span>.</span>
         </Link>
 
@@ -49,6 +62,22 @@ function Navbar({ currentTotalQuantity }) {
                 Tienda
               </Link>
             </li>
+
+            <li className="nav-item dropdown">
+              <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                Categorías
+              </a>
+              <ul className="dropdown-menu">
+                {categories.map((category) => (
+                  <li key={category.category_id}>
+                    <Link to={`${CATEGORY}/${category.category_id}`} className="dropdown-item text-dark">
+                      {category.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </li>
+
             <li className={`nav-item ${isActive(ABOUT)}`}>
               <Link to={ABOUT} className="nav-link">
                 Nosotros
@@ -113,3 +142,5 @@ function Navbar({ currentTotalQuantity }) {
 }
 
 export default Navbar;
+
+

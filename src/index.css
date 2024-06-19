@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+
 :root {
 
   --primary: #3b5d50;
@@ -25,6 +27,38 @@
 .cursor-pointer {
   cursor: pointer;
 }
+
+/* Asegúrate de que el CSS se aplica correctamente */
+
+.nav-item.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: transparent;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.dropdown-item {
+  padding: 10px 20px;
+  color: #333; /* Color de las letras más oscuro */
+  text-decoration: none;
+}
+
+.dropdown-item:hover {
+  background-color: transparent;
+  color: #000; /* Color de las letras al pasar el mouse */
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
 
 button {
   border-radius: 8px;
@@ -130,12 +164,7 @@ button:focus-visible {
 }
 
 
-/*
-===============================================================================================
-***********************************************************************************************
-***********************************************************************************************
-===============================================================================================
-*/
+
 
 
 
@@ -1172,3 +1201,5 @@ textarea {
   border-radius: 50%;
   background: rgba(59, 93, 80, 0.2);
 }
+
+

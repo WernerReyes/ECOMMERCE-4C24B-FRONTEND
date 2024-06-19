@@ -1,4 +1,5 @@
 import { apiPrivate } from "../config";
+
 export class AuthService {
 
     constructor() {
