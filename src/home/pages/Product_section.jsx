@@ -1,4 +1,9 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { publicRoutes } from '../../routes';
+
+const { SHOP } = publicRoutes;
 
 function Producto_section(){
   
@@ -59,51 +64,6 @@ function Producto_section(){
               </Link>
             </div>
           ))}
-
-          {/* <div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-            <a className="product-item" href="cart.html">
-              <img
-                src="images/product-1.png"
-                className="img-fluid product-thumbnail"
-              ></img>
-              <h3 className="product-title">Nordic Chair</h3>
-              <strong className="product-price">s/800.00</strong>
-
-							<span className="icon-cross">
-								<img src="images/cross.svg" className="img-fluid"></img>
-							</span>
-						</a>
-					</div> 
-					
-
-					
-					<div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-						<a className="product-item" href="cart.html">
-							<img src="images/product-2.png" className="img-fluid product-thumbnail"></img>
-							<h3 className="product-title">Kruzo Aero Chair</h3>
-							<strong className="product-price">s/700.00</strong>
-
-							<span className="icon-cross">
-								<img src="images/cross.svg" className="img-fluid"></img>
-							</span>
-						</a>
-					</div>
-					
-
-			
-					<div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-						<a className="product-item" href="cart.html">
-							<img src="images/product-3.png" className="img-fluid product-thumbnail"></img>
-							<h3 className="product-title">Ergonomic Chair</h3>
-							<strong className="product-price">s/650.00</strong>
-
-							<span className="icon-cross">
-								<img src="images/cross.svg" className="img-fluid"></img>
-							</span>
-						</a>
-					</div>
-		
-
 				</div>
 			</div>
 		</div>
@@ -111,4 +71,4 @@ function Producto_section(){
     );
 }
 
-export default Producto_section;
+export default Producto_section; 

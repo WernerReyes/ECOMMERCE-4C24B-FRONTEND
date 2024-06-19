@@ -36,6 +36,7 @@ export const setupInterceptors = (axiosInstance) => {
       }
 
       const errorMsg = error.response.data.error;
+
       if (errorMsg) {
         errorMessage([errorMsg])
       }
