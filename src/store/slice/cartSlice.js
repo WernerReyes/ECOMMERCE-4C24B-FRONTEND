@@ -92,6 +92,17 @@ export const cartSlice = createSlice({
             };
         },
 
+
+        onClearCart: (state) => {
+            setStorage("cart", []);
+            return {
+                ...state,
+                totalQuantity: 0,
+                totalAmount: 0,
+                cart: [],
+            };
+        },
+
         onLoadingCart: (state) => {
             return {
                 ...state,
@@ -110,5 +121,6 @@ export const {
     onAddToCart,
     onRemoveFromCart,
     onDeleteFromCart,
+    onClearCart,
     onLoadingCart,
 } = cartSlice.actions;

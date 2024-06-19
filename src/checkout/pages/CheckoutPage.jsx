@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Hero from "../../cart/pages/Hero";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
@@ -11,14 +11,16 @@ import {
 import { typeMessage } from "../../store";
 
 const CheckoutPage = () => {
-  const { cart, totalAmount, totalQuantity } = useCartStore();
+  const {
+    cart,
+    totalAmount,
+    totalQuantity,
+    startClearingCart
+  } = useCartStore();
   const { startSetMessages } = useMessageStore();
   const { authenticatedUser } = useAuthStore();
   const { startCreatePayment } = usePayment();
-  const [currentCart, setCurrentCart] = useState(cart);
-  const [currentTotalAmount, setCurrentTotalAmount] = useState(totalAmount);
-  const [currentTotalQuantity, setCurrentTotalQuantity] =
-    useState(totalQuantity);
+  useState(totalQuantity);
 
   const handlePlaceOrder = () => {
     if (!cart.length)
@@ -35,14 +37,12 @@ const CheckoutPage = () => {
       cart,
     });
 
-    setCurrentCart([]); // Clear cart
-    setCurrentTotalAmount(0);
-    setCurrentTotalQuantity(0);
+    startClearingCart(); 
   };
 
   return (
     <>
-      <Navbar currentTotalQuantity={currentTotalQuantity} />
+      <Navbar />
       <Hero />
       <h2 className="h3 mb-3 text-black text-center mt-5">Your Order</h2>
       <div
@@ -61,7 +61,7 @@ const CheckoutPage = () => {
                 </tr>
               </thead>
               <tbody>
-                {currentCart.map((item) => (
+                {cart.map((item) => (
                   <tr key={item.id}>
                     <td>
                       {item.name} <strong className="mx-2">x</strong>{" "}
@@ -74,14 +74,14 @@ const CheckoutPage = () => {
                   <td className="text-black font-weight-bold">
                     <strong>Cart Subtotal</strong>
                   </td>
-                  <td className="text-black">S/.{currentTotalAmount}</td>
+                  <td className="text-black">S/.{totalAmount}</td>
                 </tr>
                 <tr>
                   <td className="text-black font-weight-bold">
                     <strong>Order Total</strong>
                   </td>
                   <td className="text-black font-weight-bold">
-                    <strong>S/.{currentTotalAmount}</strong>
+                    <strong>S/.{totalAmount}</strong>
                   </td>
                 </tr>
               </tbody>

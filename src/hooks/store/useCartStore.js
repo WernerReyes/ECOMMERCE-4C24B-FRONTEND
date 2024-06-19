@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
-import { onAddToCart, onDeleteFromCart, onRemoveFromCart, typeMessage } from "../../store";
+import { onAddToCart, onClearCart, onDeleteFromCart, onRemoveFromCart, typeMessage } from "../../store";
 import { useMessageStore } from "./useMessageStore";
 
 export const useCartStore = () => {
     const { isLoading, cart, totalQuantity, totalAmount } = useSelector((state) => state.cart);
     const dispatch = useDispatch();
     const { startSetMessages } = useMessageStore();
+
 
     const startAddingToCart = (product) => {
         if (totalQuantity >= 20) {
@@ -26,12 +27,17 @@ export const useCartStore = () => {
         dispatch(onDeleteFromCart(id));
     }
 
+    const startClearingCart = () => {
+        dispatch(onClearCart());
+    }
+
     return {
         cart,
         totalQuantity,
         totalAmount,
         isLoading,
         startAddingToCart,
+        startClearingCart,
         startRemovingFromCart,
         startDeletingFromCart,
     };
