@@ -2,7 +2,6 @@ import React from "react";
 
 const CartItem = ({
   imageSrc,
-  userName,
   productName,
   priceUnidad,
   quantity,
@@ -12,9 +11,6 @@ const CartItem = ({
     <tr>
       <td className="product-thumbnail">
         <img src={imageSrc} alt="Image" className="img-fluid" />
-      </td>
-      <td className="product-name">
-        <h2 className="h5 text-black">{userName}</h2>
       </td>
       <td>{productName}</td>
       <td>
@@ -33,7 +29,7 @@ const CartItem = ({
         </div>
       </td>
       <td>{priceUnidad}</td>
-      <td>{priceTotal}</td>
+      <td>S/.{priceTotal}</td>
       
     </tr>
   );

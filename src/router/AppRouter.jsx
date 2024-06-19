@@ -18,12 +18,9 @@ const CheckoutPage = lazy(() => import("../checkout/pages/CheckoutPage"));
 
 const DetailProductPage = lazy(() => import("../detail-product/pages/DetailProductPage"));
 const AboutPage = lazy(() => import("../abautUs/AboutPage"));
-const CategoryPage = lazy(() => import("../category/pages/CategoryPage")); // Importa CategoryPage aquí
+const CategoryPage = lazy(() => import("../Category/pages/CategoryPage")); // Importa CategoryPage aquí
 
 const HistoryPage = lazy(() => import("../historial/HistoryPage"));
-
-
-
 
 const {
   LOGIN,

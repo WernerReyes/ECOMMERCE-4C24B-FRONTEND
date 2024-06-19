@@ -16,8 +16,6 @@ const CartTable = () => {
       );
   }, []);
 
-  console.log(cartItems);
-
   return (
     <div className="container mt-4">
       <form className="col-md-12" method="post">
@@ -26,7 +24,6 @@ const CartTable = () => {
             <thead>
               <tr>
                 <th className="product-thumbnail">Imagen</th>
-                <th className="product-name">Nombre</th>
                 <th className="product-price">Producto</th>
                 <th className="product-quantity">Cantidad</th>
                 <th className="product-total">Precio / Unidad</th>
@@ -39,7 +36,6 @@ const CartTable = () => {
                   <CartItem
                     key={index}
                     imageSrc={item.product_image}
-                    userName={item.first_name}
                     productName={item.product_name}
                     quantity={item.quantity}
                     priceUnidad={item.product_price}

@@ -45,35 +45,6 @@ const ProductImage = () => {
             <hr />
             </div>
           ))}
-
-        {/* <div className="row product-item mb-2">
-          <div className="col-4">
-            <img
-              src="/images/product-1.png"
-              alt="Product Image 1"
-              className="img-fluid"
-            />
-          </div>
-          <div className="col-8">
-            <p className="p-0 mb-0">NOMBRE DEL PRODUCTO</p>
-            <i className="text-danger text-danger ">$31.00</i>
-          </div>
-        </div>
-        <hr />
-        <div className="row product-item mb-2">
-          <div className="col-4">
-            <img
-              src="/images/product-3.png"
-              alt="Product Image 1"
-              className="img-fluid"
-            />
-          </div>
-          <div className="col-8">
-            <p className="p-0 mb-0">NOMBRE DEL PRODUCTO</p>
-            <i className="iroduct-price text-danger">$31.00</i>
-          </div>
-        </div>
-        <hr /> */}
       </div>
     </div>
   );
