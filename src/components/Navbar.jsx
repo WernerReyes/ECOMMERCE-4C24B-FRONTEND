@@ -5,7 +5,7 @@ import { useAuthStore, useCart } from "../hooks";
 import { Avatar } from "./Avatar";
 import { CategoryService } from "../services/categoryService";
 
-const { HOME, SHOP, ABOUT, PERFIL, CAR } = publicRoutes;
+const { HOME, SHOP, ABOUT, PERFIL, CAR, CATEGORY } = publicRoutes;
 
 function Navbar() {
   const { totalQuantity } = useCart();
@@ -34,10 +34,8 @@ function Navbar() {
   return (
     <nav className="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Furni navigation bar">
       <div className="container">
-
         <Link to={HOME} className="navbar-brand bg-body p-3 rounded-circle">
           <img src="/images/logo.png" alt="logo" className="imgLogo" />
-
           <span>.</span>
         </Link>
 
@@ -73,7 +71,7 @@ function Navbar() {
               <ul className="dropdown-menu">
                 {categories.map((category) => (
                   <li key={category.category_id}>
-                    <Link to={`/${category.name.toLowerCase()}`} className="dropdown-item text-dark">
+                    <Link to={`${CATEGORY}/${category.category_id}`} className="dropdown-item text-dark">
                       {category.name}
                     </Link>
                   </li>
@@ -100,7 +98,6 @@ function Navbar() {
               <Link to={CAR}>
                 <span className="badge">{totalQuantity}</span>
                 <img src="/images/cart.svg" />
-
               </Link>
             </li>
           </ul>
@@ -111,4 +108,5 @@ function Navbar() {
 }
 
 export default Navbar;
+
 

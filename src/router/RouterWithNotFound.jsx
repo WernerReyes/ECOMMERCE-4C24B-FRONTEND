@@ -8,3 +8,4 @@ export const RouterWithNotFound = ({ children }) => {
     </Routes>
   );
 };
+

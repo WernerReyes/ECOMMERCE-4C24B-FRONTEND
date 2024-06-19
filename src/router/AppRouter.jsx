@@ -7,19 +7,15 @@ import { showMessage } from "../utilities";
 import { Toaster } from "sonner";
 import { authStatus } from "../store";
 
+
 const LoginPage = lazy(() => import("../auth/pages/LoginPage"));
-
 const RegisterPage = lazy(() => import("../auth/pages/RegisterPage"));
-
 const ShopPage = lazy(() => import("../shop/pages/ShopPage"));
-
 const CartPage = lazy(() => import("../cart/pages/CartPage"));
-
 const HomePage = lazy(() => import("../home/pages/HomePage"));
-
 const DetailProductPage = lazy(() => import("../detail-product/pages/DetailProductPage"));
-
 const AboutPage = lazy(() => import("../abautUs/AboutPage"));
+const CategoryPage = lazy(() => import("../category/pages/CategoryPage")); // Importa CategoryPage aquí
 
 const {
   LOGIN,
@@ -30,8 +26,8 @@ const {
   ABOUT,
   PERFIL,
   CAR,
+  CATEGORY,
 } = publicRoutes;
-
 
 export const AppRouter = () => {
   const { isMobile } = useWindowSize();
@@ -66,17 +62,20 @@ export const AppRouter = () => {
         <Route path="/" element={<Navigate to={LOGIN} />} />
         <Route path={LOGIN} element={<LoginPage />} />
         <Route path={REGISTER} element={<RegisterPage />} />
-
         <Route path={HOME} element={<HomePage />} />
         <Route path={SHOP} element={<ShopPage />} />
-        <Route
-          path={`${DETAILPRODUCT}/:productId`}
-          element={<DetailProductPage />}
-        />
+        <Route path={`${DETAILPRODUCT}/:productId`} element={<DetailProductPage />} />
         <Route path={ABOUT} element={<AboutPage />} />
         <Route path={PERFIL} element={<LoginPage />} />
         <Route path={CAR} element={<CartPage />} />
+        
+        {/* Ruta dinámica para las categorías */}
+        <Route path={`${CATEGORY}/:categoryId`} element={<CategoryPage />} />
       </RouterWithNotFound>
     </BrowserRouter>
   );
 };
+
+
+
+
